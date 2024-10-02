@@ -95,7 +95,7 @@ class HeroSection extends Component {
     this.setState({ visible: true, loadingicon: true });
 
     //check if same link is clicked again & again
-        let appopener_app_url = "https://appopener.co.in/"; // process.env.REACT_APP_opnr_app_url;  
+        let appopener_app_url = "https://appopener.com/"; // process.env.REACT_APP_opnr_app_url;  
         console.log(appopener_app_url);
     if (this.state.value === this.state.old_original_url) {
       this.setState({
