@@ -17,7 +17,13 @@ import GoogleAd from "../components/GoogleAd";
 class Splash extends Component {
   constructor(props) {
     super(props);
-    this.state = { intentvalue: "", original_url: "", ostype: "" };
+    this.state = {
+      intentvalue: "",
+      original_url: "",
+      ostype: "", 
+      countdown: 3,
+      showRedirectText: true,
+    };
   }
 
   componentDidMount() {
@@ -35,6 +41,16 @@ class Splash extends Component {
       if (app_intend === "Desktop" || app_intend === "Mobile") {
         app_intend = originalURL;
       }
+      let countdownInterval = setInterval(() => {
+        this.setState((prevState) => ({
+          countdown: prevState.countdown - 1,
+        }));
+
+        // When countdown reaches 0, trigger link click
+        if (this.state.countdown === 0) {
+          clearInterval(countdownInterval); // Stop the countdown
+          this.setState({ showRedirectText: false });
+
       if (this.state.ostype == "windows") {
         click_link.setAttribute("href", app_intend);
         click_link.click();
@@ -43,6 +59,8 @@ class Splash extends Component {
         click_link.setAttribute("href", app_intend);
         window.location.assign(app_intend);
       }
+    }
+  }, 1000);
     });
   }
 
@@ -123,6 +141,13 @@ class Splash extends Component {
               <button>{`Continue to the Link`}</button>
             </a>
           </div>
+
+          {this.state.showRedirectText && (
+            <div className="countdown-text">
+              {`Redirecting in ${this.state.countdown}...`}
+            </div>
+          )}
+
 
           {/* <GoogleAd slot="4955640795" googleAdId="ca-pub-5645705217995911"/> */}
 
