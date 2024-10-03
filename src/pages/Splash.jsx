@@ -46,9 +46,9 @@ class Splash extends Component {
           countdown: prevState.countdown - 1,
         }));
 
-        // When countdown reaches 0, trigger link click
+        
         if (this.state.countdown === 0) {
-          clearInterval(countdownInterval); // Stop the countdown
+          clearInterval(countdownInterval); 
           this.setState({ showRedirectText: false });
 
       if (this.state.ostype == "windows") {
