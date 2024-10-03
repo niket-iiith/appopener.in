@@ -24,7 +24,9 @@ class Splash extends Component {
       countdown: 3,
       showRedirectText: true,
     };
+    this.handleRedirect = this.handleRedirect.bind(this); 
   }
+
 
   componentDidMount() {
     let apptag = this.props.match.params.apptype;
@@ -40,6 +42,7 @@ class Splash extends Component {
       console.log(app_intend);
       if (app_intend === "Desktop" || app_intend === "Mobile") {
         app_intend = originalURL;
+        /* console.log(app_intend) */
       }
       let countdownInterval = setInterval(() => {
         this.setState((prevState) => ({
@@ -49,19 +52,24 @@ class Splash extends Component {
         
         if (this.state.countdown === 0) {
           clearInterval(countdownInterval); 
-          this.setState({ showRedirectText: false });
-
-      if (this.state.ostype == "windows") {
-        click_link.setAttribute("href", app_intend);
-        click_link.click();
-        //console.log("hello")
-      } else {
-        click_link.setAttribute("href", app_intend);
-        window.location.assign(app_intend);
-      }
-    }
-  }, 1000);
+          this.setState({ showRedirectText: false }); 
+          this.handleRedirect(); 
+        }
+      }, 1000); 
     });
+  }
+  handleRedirect() {
+    const app_intend = this.state.intentvalue === "Desktop" || this.state.intentvalue === "Mobile"
+      ? this.state.original_url
+      : this.state.intentvalue;
+
+    if (this.state.ostype === "windows") {
+      const click_link = document.getElementById("abcd");
+      click_link.setAttribute("href", app_intend);
+      click_link.click();
+    } else {
+      window.location.assign(app_intend);
+    }
   }
 
   render() {
@@ -138,7 +146,7 @@ class Splash extends Component {
             </a>
             <br/> */}
             <a id="abcd" target="_blank">
-              <button>{`Continue to the Link`}</button>
+              <button onClick={this.handleRedirect}>{`Continue to the Link`}</button>
             </a>
           </div>
 
