@@ -27,6 +27,7 @@ class Splash extends Component {
     this.handleRedirect = this.handleRedirect.bind(this); 
   }
 
+
   componentDidMount() {
     let apptag = this.props.match.params.apptype;
     let shortstring = this.props.match.params.shorturl;
@@ -41,6 +42,7 @@ class Splash extends Component {
       console.log(app_intend);
       if (app_intend === "Desktop" || app_intend === "Mobile") {
         app_intend = originalURL;
+        /* console.log(app_intend) */
       }
       let countdownInterval = setInterval(() => {
         this.setState((prevState) => ({
@@ -49,11 +51,11 @@ class Splash extends Component {
 
         
         if (this.state.countdown === 0) {
-          clearInterval(countdownInterval); // Stop the countdown
-          this.setState({ showRedirectText: false }); // Hide the redirecting text
-          this.handleRedirect(); // Redirect at the end of the countdown
+          clearInterval(countdownInterval); 
+          this.setState({ showRedirectText: false }); 
+          this.handleRedirect(); 
         }
-      }, 1000); // 1000ms = 1 second interval
+      }, 1000); 
     });
   }
   handleRedirect() {
