@@ -49,7 +49,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
-  background-color: #000;
+  background-color: white;
 }
 .App{
   max-width: 500px;
@@ -61,6 +61,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+  margin-top: 300px;
 }
 .container-1 > img {
   max-width: 85px;
