@@ -11,6 +11,7 @@ import AdUI from "../assets/ui.png";
 import deetbg from "../assets/deet.png"
 import appopener_text from "../assets/ac.png";
 import GoogleAd from "../components/GoogleAd";
+import ScriptLoader from '../components/ScriptLoader';
 //import splash_adv from "../assets/splash/splash_adv.png";
 
 
@@ -58,81 +59,30 @@ class Splash extends Component {
       }, 1000); 
     });
   }
+  
   handleRedirect() {
-    const app_intend = this.state.intentvalue === "Desktop" || this.state.intentvalue === "Mobile"
-      ? this.state.original_url
-      : this.state.intentvalue;
-
-    if (this.state.ostype === "windows") {
-      const click_link = document.getElementById("abcd");
-      click_link.setAttribute("href", app_intend);
-      click_link.click();
-    } else {
-      window.location.assign(app_intend);
-    }
+      const app_intend = this.state.intentvalue === "Desktop" || this.state.intentvalue === "Mobile"
+        ? this.state.original_url
+        : this.state.intentvalue;
+  
+      if (this.state.ostype === "windows") {
+          const click_link = document.getElementById("abcd");
+          click_link.setAttribute("href", app_intend);
+          click_link.click();
+      } 
+      else {
+          window.location.assign(app_intend);
+      }
   }
+
+ const handleScriptLoad = () => {
+    console.log('Ad script has loaded!');
+
+  const inlineAdScript = `(vitag.Init = window.vitag.Init || []).push(function () { viAPItag.display("pw_42230") });`;
 
   render() {
     return (
-      // <div className={classes.mainContainer}>
-
-      //     {/* <h1>Splash page - {this.props.match.params.apptype}</h1>
-      //     <a href={this.state.intentvalue}>{this.state.intentvalue}</a> */}
-
-      //     <div className = 'heading'>
-      //         <a href="https://midas.appopener.com/">
-      //             <img src={new_logo} style={{"width": "210px"}} alt="AppOpener" />
-      //         </a>
-      //     </div>
-      //     <div className= 'heading'>
-      //         <h1 style={{color:"#fd5331", "margin-top": "1px"}}>Name is verse, Omniverse!</h1>
-      //     </div>
-      //     <div className='heading'>
-      //         <p className="title-text" style={{fontFamily:"monospace",fontSize:"17px", "margin-top": ".05px"}}>Building towards Web 3.0</p>
-      //     </div>
-
-      //     <center style={{"margin-top": "22px"}}>
-      //     <a id="abcd" target="_blank" style={{"text-decoration": "none", "font-size": "30px", "font-family": "monospace","backgroundColor":"#ffc107","padding":"10px 20px 10px 20px"}}>Continue</a>
-      //     </center>
-      //     <center style={{"margin-top": "33px"}}>
-      //         {/* <a href="https://www.appopener.com/open">
-      //             <img class="rotate" id="sticker" src={appopener_text} alt="AppOpener" />
-      //             </a> */}
-
-      //         <p style={{fontFamily:"monospace",fontSize:"16px"}}>"Genie, You are free!"<br/>Date: 27.12.2022<br/>Time: 12:29:29 - 0:00:00<br/>Speed: 90000 sec/day</p>
-      //         <br/>
-
-      //         <p style={{fontFamily:"monospace",fontSize:"15px"}}>Click below for more!</p>
-      //         <a href="https://deet.me/dheet">
-      //             <img src={deetmelogo} style={{"width": "180px"}} alt="AppOpener" />
-      //         </a>
-      //         <br/>
-      //         <h1 style={{color:"#fd5331"}}>deet.me for ढीट</h1>
-
-      //     </center>
-
-      //     {/* <center>
-      //         <p class="text" style={{"margin-top": "50px"}}>Boosting Your Link ....</p>
-      //         </center> */}
-
-      //     {/* <div className="poster_container">
-      //         <center>
-      //         <a href="https://yellowdiary.appopener.com/" target="_blank">
-      //                 <img class="splash_poster img-responsive" src={splash_adv} alt="AppOpener" />
-      //             </a>
-      //             </center>
-      //         </div> */}
-
-      //     {/* <center>
-      //         <p class="footer">
-      //             <br /><br/>
-      //             <p style={{"float":"left","marginLeft":"10px",fontFamily:"monospace",fontSize:"15px"}}>Click here -></p>
-      //         </p>
-      //     </center> */}
-
-      // </div>
-
-      // </>
+     
       <div className={classes.mainContainer}>
         <div className="App">
 
@@ -158,6 +108,12 @@ class Splash extends Component {
 
 
           {/* <GoogleAd slot="4955640795" googleAdId="ca-pub-5645705217995911"/> */}
+
+           <div className="adsbyvli" data-ad-slot="pw_42230"></div>
+
+            {/* Load the inline script */}
+            <ScriptLoader inlineScript={inlineAdScript} onLoad={handleScriptLoad} />
+          </div>
 
           <div className="container-2">
             {/* <a
