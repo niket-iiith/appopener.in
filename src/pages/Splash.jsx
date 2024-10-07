@@ -12,6 +12,7 @@ import deetbg from "../assets/deet.png"
 import appopener_text from "../assets/ac.png";
 import GoogleAd from "../components/GoogleAd";
 //import splash_adv from "../assets/splash/splash_adv.png";
+import ScriptLoader from "../components/ScriptLoader";
 
 
 class Splash extends Component {
@@ -75,6 +76,15 @@ class Splash extends Component {
   }
 
 
+ handleExternalScriptsLoad = () => {
+    console.log("External scripts have loaded!");
+    this.setState({ externalScriptsLoaded: true });
+  };
+
+  // Inline script to initialize the ad
+  inlineAdScript = `(vitag.Init = window.vitag.Init || []).push(function () { viAPItag.display("pw_42234") });`;
+
+
   render() {
     return (
      
@@ -100,6 +110,35 @@ class Splash extends Component {
               {`Redirecting in ${this.state.countdown}...`}
             </div>
           )}
+
+          
+
+          {/* Load the necessary external scripts first */}
+          <ScriptLoader
+            src="//cdn.vlitag.com/w/6075c048-29c2-4073-b0d0-e08e0a1a25d5.js"
+            onLoad={this.handleExternalScriptsLoad}
+          />
+          <ScriptLoader
+            inlineScript={`var vitag = vitag || {}; vitag.gdprShowConsentToolButton = false;`}
+            onLoad={() => console.log("GDPR consent script loaded")}
+          />
+          <ScriptLoader
+            src="//cdn.vlitag.com/ata/adv/6075c048-29c2-4073-b0d0-e08e0a1a25d5.js"
+            onLoad={this.handleExternalScriptsLoad}
+          />
+
+          {/* Load the inline ad script after the external scripts are loaded */}
+          {this.state.externalScriptsLoaded && (
+            <>
+              <div className="adsbyvli" data-ad-slot="pw_42234"></div>
+              <ScriptLoader
+                inlineScript={this.inlineAdScript}
+                onLoad={() => console.log("Ad script has loaded!")}
+              />
+            </>
+          )}
+
+          
 
           <div className="container-2">
             {/* <a
