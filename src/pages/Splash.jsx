@@ -75,11 +75,11 @@ class Splash extends Component {
       }
   }
 
- const handleScriptLoad = () => {
-    console.log('Ad script has loaded!');
- }
-  
-  const inlineAdScript = `(vitag.Init = window.vitag.Init || []).push(function () { viAPItag.display("pw_42230") });`;
+  handleScriptLoad = () => {
+      console.log('Ad script has loaded!');
+  }
+    
+  inlineAdScript = `(vitag.Init = window.vitag.Init || []).push(function () { viAPItag.display("pw_42230") });`;
 
   render() {
     return (
