@@ -11,7 +11,6 @@ import AdUI from "../assets/ui.png";
 import deetbg from "../assets/deet.png"
 import appopener_text from "../assets/ac.png";
 import GoogleAd from "../components/GoogleAd";
-import ScriptLoader from '../components/ScriptLoader';
 //import splash_adv from "../assets/splash/splash_adv.png";
 
 
