@@ -75,18 +75,6 @@ class Splash extends Component {
       }
   }
 
-  handleExternalScriptsLoad = () => {
-    console.log("External scripts have loaded!");
-    this.setState({ externalScriptsLoaded: true });
-  };
-
-  handleStickyBannerLoad = () => {
-    console.log("Sticky banner script has loaded!");
-  };
-
-  // Inline script to initialize the sticky banner ad
-  stickyBannerScript = `(vitag.Init = window.vitag.Init || []).push(function () { viAPItag.initStickyBanner("pw_42234"); });`;
-
 
   render() {
     return (
@@ -112,32 +100,6 @@ class Splash extends Component {
             <div className="countdown-text">
               {`Redirecting in ${this.state.countdown}...`}
             </div>
-          )}
-
-
-         <ScriptLoader
-            src="//cdn.vlitag.com/w/6075c048-29c2-4073-b0d0-e08e0a1a25d5.js"
-            async
-            defer
-            onLoad={this.handleExternalScriptsLoad}
-          />
-          <ScriptLoader
-            inlineScript={`var vitag = vitag || {}; vitag.gdprShowConsentToolButton = false;`}
-            onLoad={() => console.log("GDPR consent script loaded")}
-          />
-          <ScriptLoader
-            src="//cdn.vlitag.com/ata/adv/6075c048-29c2-4073-b0d0-e08e0a1a25d5.js"
-            async
-            defer
-            onLoad={this.handleExternalScriptsLoad}
-          />
-
-          {/* Once external scripts are loaded, load the sticky banner ad script */}
-          {this.state.externalScriptsLoaded && (
-            <ScriptLoader
-              inlineScript={this.stickyBannerScript}
-              onLoad={this.handleStickyBannerLoad}
-            />
           )}
 
           <div className="container-2">
