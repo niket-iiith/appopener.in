@@ -114,7 +114,6 @@ class Splash extends Component {
 
             {/* Load the inline script */}
             <ScriptLoader inlineScript={inlineAdScript} onLoad={handleScriptLoad} />
-          </div>
 
           <div className="container-2">
             {/* <a
