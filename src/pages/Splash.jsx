@@ -113,7 +113,7 @@ class Splash extends Component {
            <div className="adsbyvli" data-ad-slot="pw_42230"></div>
 
             {/* Load the inline script */}
-            <ScriptLoader inlineScript={inlineAdScript} onLoad={handleScriptLoad} />
+            <ScriptLoader inlineScript={this.inlineAdScript} onLoad={this.handleScriptLoad} />
 
           <div className="container-2">
             {/* <a
