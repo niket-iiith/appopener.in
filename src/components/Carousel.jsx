@@ -119,7 +119,18 @@ const Carousel = ({ items }) => {
           }
 
           return (
+            
             <div key={index} className={className}>
+               <a 
+        href={item.link} 
+        style={{ textDecoration: 'none' }}
+        onClick={(e) => {
+          e.preventDefault(); // Optional: Prevent default behavior
+          console.log(`Link clicked: ${item.link}`); // Log or handle the click
+          // Add custom logic here, like opening a modal or redirecting elsewhere
+          window.open(item.link, "_blank"); // Opens the link in a new tab
+        }}
+      >
               <img
                 src={item.image}
                 alt={`Slide ${index}`}
@@ -134,6 +145,7 @@ const Carousel = ({ items }) => {
                   <p className="carousel__description text-white">{item.description}</p>
                 </a>
               </div>
+              </a>
             </div>
           );
         })}

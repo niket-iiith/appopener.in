@@ -54,6 +54,7 @@
     gap: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
+    justify-content: space-around;
   }
   
   .expandable-content > div {

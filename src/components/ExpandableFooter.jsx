@@ -1,7 +1,8 @@
 // ExpandableFooter.js
 import React, { useState, useEffect, useRef } from 'react';
 import '../css/expandable-footer.css';
-
+import { FaFacebook, FaInstagram, FaMailBulk, FaMobile, FaPinterest, FaTwitter, FaWhatsapp, FaYoutube } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const ExpandableFooter = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isSticky,setIsSticky] = useState(true);
@@ -33,11 +34,11 @@ const ExpandableFooter = () => {
             <a href="#contact">Contact</a>
           </nav>
         
-        <div className={`expanded-content ${isExpanded ? 'visible' : ''}`}>
+        <div className={`expanded-content flex justify-between ${isExpanded ? 'visible' : ''}`}>
           <div className="footer-section">
             <h3>Policies</h3>
             <ul>
-              <li><a href="#space-exploration">Privacy Policy</a></li>
+              <li><Link  to='/privacypolicy' style={{textDecoration:"none",cursor:'pointer' }}> Privacy Policy</Link></li>
               <li><a href="#astronomy"></a></li>
             </ul>
           </div>
@@ -58,12 +59,15 @@ const ExpandableFooter = () => {
           <div className="footer-section"> */}
             <h3>Contact Details</h3>
             <ul>
-              <li><a href="#support">Support</a></li>
+              <li><a href="mailto:contactus@appopener.com" style={{textDecoration:"none",fontFamily:'Montserrat Alternates'}} className="text-muted"> contactus@appopener.com</a></li>
              
             </ul>
             <h3>Contact With Us</h3>
             <ul>
-              <li><a href="#support">Support</a></li>
+            <li className="list-inline-item"><a href="" target="_blank" title="facebook"><FaFacebook style={{color:'#ccc'}} size="32px"/></a></li>
+                            <li className="list-inline-item"><a href="" target="_blank" title="instagram"><FaInstagram style={{color:'#ccc'}} size="32px"/></a></li>
+                            <li className="list-inline-item"><a href="" target="_blank" title="youtube"><FaYoutube style={{color:'#ccc'}} size="32px"/></a></li>
+                            <li className="list-inline-item"><a href="" target="_blank" title="pinterest"><FaPinterest style={{color:'#ccc'}} size="32px"/></a></li>
              
             </ul>
           </div>

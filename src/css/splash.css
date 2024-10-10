@@ -1,3 +1,9 @@
+.main-container{
+  font-family: "Oswald", sans-serif; 
+ /*  font-family: "Noto Serif", serif; */
+ /* font-family: "Nerko One", cursive; */
+
+}
 .header{
   display: flex;
   justify-content: space-between;
@@ -6,9 +12,7 @@
   height:70px;
 }
 
-.header p{
-  color:white;
-}
+
 
 .user-details{
   display: flex;
@@ -38,8 +42,9 @@
 .user-tag{
   padding-left: 10px;
   padding-top: 20px;
+  /* font-family: "Oswald", sans-serif; */
 }
-.user-tag span,.creator-name-tag span,.numbers div span{
+.user-tag span,.numbers div span{
   display: block;
 }
 
@@ -55,7 +60,12 @@
 }
 
 .latest-link{
-  
+  display: flex;
+   flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+
   left: 10px;
   width: 50%;
 }
@@ -68,8 +78,9 @@
 }
 
 .latest-link-img img{
-  width: 95%;
+  width: 97%;
   border-radius: 2%;
+  height: 200px;
 }
 
 .latest-link-img button{
@@ -88,11 +99,13 @@
  /*  align-items: center; */
   font-weight: 400;
   justify-content: space-between;
+  width: 100%;
+  /* justify-content: space-around; */
 }
 
 .videoLinks div{
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   font-weight: 400;
 }
 
@@ -106,8 +119,9 @@
 }
 
 .creator-name,.lg-text{
-  font-size: xx-large;
+  font-size: x-large;
   font-weight: 700;
+  font-family: "Oswald", sans-serif;
 }
 
 .creator-tag,.md-text{
@@ -161,7 +175,7 @@
   margin-right:20px;
   margin-top:20px;
 }
-.glass-effect {
+/* .glass-effect {
   position: absolute;
   bottom: 0;
   left: 11px;
@@ -180,7 +194,7 @@
   
   
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
+} */
 .expand-container{
   margin-top: 60px;
 }
@@ -196,6 +210,7 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     
     width: 100%;
   }
+
 
 }
 .stories-container {
@@ -265,14 +280,66 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   color: white;
 /*   display: inline-block; */
   white-space: nowrap; /* Prevent text from breaking into multiple lines */
-  animation: scroll 20s linear infinite; /* Animation that makes the text move */
+  animation: scroll 22s linear infinite; /* Animation that makes the text move */
 }
 
 @keyframes scroll {
   0% {
-    transform: translateX(100%); /* Start from outside the right side */
+    transform: translateX(20%); /* Start from outside the right side */
   }
   100% {
     transform: translateX(-100%); /* Move off the left side */
   }
+}
+
+
+
+.continueButton {
+  width: 100%; /* Make the button take full width */
+  background: #D72323;
+  height: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px;
+ /*  margin-bottom: 10px;   */
+}
+
+.continueButton button {
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+ 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  
+}
+.stickyButton {
+  position: -webkit-sticky; 
+  position: sticky;
+  top: 0;
+  z-index: 3; 
+}
+.cancel {
+  width: auto; /* Adjust width as per the icon size */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Adjust margin as needed */
+}
+
+.cancel button {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 6px; 
+/*   border-radius: 50%;  */
+
 }
