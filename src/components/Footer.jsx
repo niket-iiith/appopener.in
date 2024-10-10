@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { FaFacebook, FaInstagram, FaMailBulk, FaMobile, FaPinterest, FaTwitter, FaWhatsapp, FaYoutube } from 'react-icons/fa';
 import { BrowserRouter as Router,Route, Link, Switch} from 'react-router-dom';
 import classes from "./Styles.module.css";
+import slogo from "../assets/slogo.avif";
 // import { PrivacyPolicy } from '../pages/PrivacyPolicy';
 // import { useHistory } from 'react-router-dom';
 // import Home from '../pages/Home';
@@ -19,7 +20,7 @@ function Footer(){
                 <div className="row">
                     {/* <div className="col-lg-1 col-md-1 mb-4" ></div> */}
                     <div className="col-lg-3 col-md-4 mb-4" >
-                        <img className={classes.logo} src={require("../assets/slogo.avif").default} alt="Logo" />
+                        <img className={classes.logo} src={slogo} alt="Logo" />
                                 {/* <p className="text-muted mb-4" style={{width:"250px"}}>Loginskip . <br/>
                                 </p> */}
                     </div>

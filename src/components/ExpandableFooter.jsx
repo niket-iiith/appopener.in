@@ -34,7 +34,7 @@ const ExpandableFooter = () => {
             <a href="#contact">Contact</a>
           </nav>
         
-        <div className={`expanded-content flex justify-between ${isExpanded ? 'visible' : ''}`}>
+        <div className={`expanded-content flex  ${isExpanded ? 'visible' : ''}`}>
           <div className="footer-section">
             <h3>Policies</h3>
             <ul>

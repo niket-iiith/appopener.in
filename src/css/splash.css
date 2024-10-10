@@ -1,7 +1,7 @@
 .main-container{
-  font-family: "Oswald", sans-serif; 
+  /* font-family: "Oswald", sans-serif;  */
  /*  font-family: "Noto Serif", serif; */
- /* font-family: "Nerko One", cursive; */
+  font-family: "Nerko One", cursive; 
 
 }
 .header{
@@ -74,7 +74,7 @@
   position: relative;
   border-radius: 2px;
   display: inline-block;
-  padding-left: 12px;
+  /* padding-left: 12px; */
 }
 
 .latest-link-img img{
@@ -175,6 +175,13 @@
   margin-right:20px;
   margin-top:20px;
 }
+.vid{
+  width: 100%;
+  height: 300px;
+}
+.conti{
+  padding-left: 57px;
+}
 /* .glass-effect {
   position: absolute;
   bottom: 0;
@@ -210,6 +217,19 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     
     width: 100%;
   }
+  .stickyButton {
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0;
+    z-index: 3; 
+  }
+  .conti{
+    padding-left: 0px;
+  }
+ /*  .vid{
+    width: 100%;
+    height: auto;
+  } */
 
 
 }
@@ -217,18 +237,24 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   display: flex;
   gap: 1rem; /* Spacing between each story */
   padding: 1rem 0;
-  overflow-x: auto; /* Allows horizontal scrolling for stories */
+  overflow-x: auto;
+   /* Allows horizontal scrolling for stories */
 }
 
 .story-item {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
+  animation: scrol 6s linear infinite;
 }
 
 .story-avatar-wrapper {
-  position: relative;
+  /* position: relative; */
+  flex-shrink: 0;
+  margin-right: 20px;
+
  /*  background-color: black; 
   padding: 1px; 
   border-radius: 50%;  */
@@ -267,8 +293,9 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: flex-start; /* Start from the left */
   align-items: center;
-  height:30px; /* Full screen height */
-  overflow: hidden; /* Prevent the text from overflowing the container */
+  height:40px; /* Full screen height */
+  overflow: hidden; 
+ /* Adjust based on avatar height */ /* Prevent the text from overflowing the container */
 }
 
 .sliding-text {
@@ -280,15 +307,23 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   color: white;
 /*   display: inline-block; */
   white-space: nowrap; /* Prevent text from breaking into multiple lines */
-  animation: scroll 22s linear infinite; /* Animation that makes the text move */
+  animation: scroll 30s linear infinite; /* Animation that makes the text move */
 }
 
 @keyframes scroll {
   0% {
-    transform: translateX(20%); /* Start from outside the right side */
+    transform: translateX(0%); /* Start from outside the right side */
   }
   100% {
-    transform: translateX(-100%); /* Move off the left side */
+    transform: translateX(-70%); /* Move off the left side */
+  }
+}
+@keyframes scrol {
+  0% {
+    transform: translateX(0%); /* Start from outside the right side */
+  }
+  100% {
+    transform: translateX(-60%); /* Move off the left side */
   }
 }
 
@@ -316,12 +351,12 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   
 }
-.stickyButton {
-  position: -webkit-sticky; 
-  position: sticky;
-  top: 0;
-  z-index: 3; 
-}
+
+
+
+
+
+
 .cancel {
   width: auto; /* Adjust width as per the icon size */
 

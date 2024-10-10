@@ -16,7 +16,7 @@ import { MdOutlineIosShare } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
 import Carousel from '../components/Carousel';
 import logo from "../assets/logo.avif";
-import slogo from "../assets/slogo.png";
+import slogo from "../assets/slogo.avif";
 import loginskip from "../assets/loginskip.png";
 import instagram from "../assets/instagram.png";
 import twitter from "../assets/twitter.png";
@@ -162,7 +162,7 @@ class Splash extends Component {
           <Avatar alt="logo" src={logo} sx={{ width: 45, height: 45 }}/>
           <p className='user-tag'><span className='md-text'>AppOpener</span><span></span></p>
         </div>
-        <a href="https://appopener.com/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
+        <a href="https://appopener.ai/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
         <div className='subscribe-button bg-black'>
           <button className="bg-black  text-white">
             Subscribe
@@ -172,16 +172,17 @@ class Splash extends Component {
       </div>
     
 <div className="coming-soon-container mt-2">
-        <p className="sliding-text">&bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users </p>
+        <p className="sliding-text">&bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener" &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener" &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 50M+ users </p>
       </div>
       
       <div className='hero-section'>
         <div className='latest-link '>
         <button onClick={this.handleRedirect} >
           <div className='latest-link-img  '>
-             <iframe
-      width= "350px" 
-      height="200px"
+             <iframe className="vid"
+             width="500%"
+             height="auto"
+      
       src="https://www.youtube.com/embed/D3ulWU96yTs?autoplay=1&loop=1&playlist=D3ulWU96yTs&mute=1"
       title="Go Beyond Creativity with AppOpener | CreatorCosmos"
       frameBorder="0"
@@ -214,7 +215,7 @@ class Splash extends Component {
           style={{ width: '30px', height: '30px' }}
         />
         </a>
-        <a href="https://appopener.com/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
+        <a href="https://appopener.ai/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
         <img
           src={instagram}
           alt=" "
@@ -232,6 +233,7 @@ class Splash extends Component {
             </div>
           )} 
         </div>
+        <div className="conti">
         <div className="continueButton stickyButton bg-black text-white">
           {this.state.showRedirectText ? (
             <p className="pt-3">Redirecting in {this.state.countdown} seconds...</p>
@@ -270,7 +272,7 @@ class Splash extends Component {
 
        
         
-        <div className='ml-2 flex flex-col' style={{flexDirection: "column"}} >
+        <div className='ml-2 flex '  >
        
        {/*  <div className='creator-details mt-3'>
           <div className='creator-name-tag'>
@@ -294,7 +296,7 @@ class Splash extends Component {
           </div>
         </div> */}
          <div>
-       
+      
        <div className="stories-container flex space-x-2 mx-2 ">
       <div  className="story-item flex-row gap-3  items-center">
         <div className="story-avatar-wrapper">
@@ -320,7 +322,7 @@ class Splash extends Component {
         </div>
   
         <div className="story-avatar-wrapper">
-        <a href="https://spawnser.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://spwnser.com/" target="_blank" rel="noopener noreferrer">
           <img
             src={slogo}
             alt=" "
@@ -339,6 +341,48 @@ class Splash extends Component {
           />
           </a>
         </div>
+        <div className="story-avatar-wrapper">
+        <a href="https://shop.creatorcosmos.com/" target="_blank" rel="noopener noreferrer">
+          <img
+            src={CREATORS}
+            alt=" "
+            className="story-avatar rounded-full border-4 border-black p-1 "
+            style={{ width: '70px', height: '70px' }}
+          />
+  </a>
+        </div>
+        <div className="story-avatar-wrapper">
+      <a href="https://superprofile.bio/" target="_blank" rel="noopener noreferrer">
+        <img
+          src={superprofile}
+          alt=" "
+          className="story-avatar rounded-full border-4 border-black-500 p-1"
+          style={{ width: '70px', height: '70px' }}
+        />
+      </a>
+    </div>
+
+    <div className="story-avatar-wrapper">
+      <a href="https://spwnser.com/" target="_blank" rel="noopener noreferrer">
+        <img
+          src={slogo}
+          alt=" "
+          className="story-avatar rounded-full border-4 border-black-500 p-1"
+          style={{ width: '70px', height: '70px' }}
+        />
+      </a>
+    </div>
+
+    <div className="story-avatar-wrapper">
+      <a href="https://admin.loginskip.com/" target="_blank" rel="noopener noreferrer">
+        <img
+          src={loginskip}
+          alt=" "
+          className="story-avatar rounded-full border-4 border-black-500 p-1"
+          style={{ width: '70px', height: '70px' }}
+        />
+      </a>
+    </div>
   
       </div>
   </div>  </div>
@@ -348,6 +392,8 @@ class Splash extends Component {
     
         </div> */}
       </div>
+      </div>
+
       </div>
        <div className='caro-container'>
         <Carousel items={carouselItems}/>

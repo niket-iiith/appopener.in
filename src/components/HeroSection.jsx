@@ -17,6 +17,7 @@ import {loadCaptchaEnginge,LoadCanvasTemplate,LoadCanvasTemplateNoReload,validat
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "../css/profile.css";
 import InApp from "detect-inapp";
+import logo from "../assets/logo.avif";
 
 class HeroSection extends Component {
   constructor(props) {
@@ -438,7 +439,7 @@ class HeroSection extends Component {
                     <Navbar.Brand href="#home" className="navbar-logo">
                       <img
                         className={classes.logo}
-                        src={require("../assets/logo.avif").default}
+                        src={logo}
                         alt="Logo"
                       />
                      
@@ -586,7 +587,7 @@ class HeroSection extends Component {
                     <p style={{color:'white',fontFamily:'Montserrat Alternates',fontSize:'15.38px'}}>Login to view analytics</p>
                     </div>
 
-                    <div style={{"marginTop":"-20px"}}>
+                    <div className="flex flex-row mt-2" style={{"marginTop":"-20px"}}>
                      
                     <br />
    

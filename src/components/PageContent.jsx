@@ -6,7 +6,21 @@ import LanguageCard from "./LanguageCard";
 import MultiImgSlider from "./MultiImgSlider";
 import Marquee from "react-fast-marquee";
 import { FaAmazonPay, FaDollarSign,FaMailBulk,FaWhatsapp } from "react-icons/fa";
+import smartLink from "../assets/icons/Smart-link.avif";
+ import Profile from "../assets/icons/Profile.avif";
+import Choice from "../assets/icons/Choice.avif";
+import Secure from "../assets/icons/Secure.avif";
+import qrcode from "../assets/icons/qr-code.avif";
+import Rocket from "../assets/services/Rocket.avif";
+import money from "../assets/services/money.avif";
+import Deal from "../assets/services/Deal.avif";
+import service from "../assets/services/service.avif";
+import Analytics from "../assets/services/Analytics.avif";
+import Merchandise from "../assets/services/Merchandise.avif";
+import Community from "../assets/services/Community.avif";
+import pattern from "../assets/pattern.png";
 
+ 
 
 const PageContent = () => {
   return (
@@ -38,7 +52,7 @@ const PageContent = () => {
                 <Card.Body>
                   <div className={classes.cardIcon}>
                     <img
-                      src={require("../assets/icons/Smart-link.avif").default}
+                      src={smartLink}
                       alt="Logo"
                     />
                   </div>
@@ -52,7 +66,7 @@ const PageContent = () => {
                 <Card.Body>
                   <div className={classes.cardIcon}>
                     <img
-                      src={require("../assets/icons/Profile.avif").default}
+                      src={Profile}
                       alt="Logo"
                     />
                   </div>
@@ -66,7 +80,7 @@ const PageContent = () => {
                 <Card.Body>
                   <div className={classes.cardIcon}>
                     <img
-                      src={require("../assets/icons/Choice.avif").default}
+                      src={Choice}
                       alt="Logo"
                     />
                   </div>
@@ -80,7 +94,7 @@ const PageContent = () => {
                 <Card.Body>
                   <div className={classes.cardIcon}>
                     <img
-                      src={require("../assets/icons/Secure.avif").default}
+                      src={Secure}
                       alt="Logo"
                     />
                   </div>
@@ -94,7 +108,7 @@ const PageContent = () => {
                 <Card.Body>
                   <div className={classes.cardIcon}>
                     <img
-                      src={require("../assets/icons/qr-code.avif").default}
+                      src={qrcode}
                       alt="Logo"
                     />
                   </div>
@@ -108,7 +122,7 @@ const PageContent = () => {
                 <Card.Body>
                   <div className={classes.cardIcon}>
                     <img
-                      src={require("../assets/icons/qr-code.avif").default}
+                      src={qrcode}
                       alt="Logo"
                     />
                   </div>
@@ -279,7 +293,7 @@ const PageContent = () => {
             <Col md={6} sm={6} xs={12} >
               <div className={classes.securityImg}>
                 <img class="d-none d-lg-block" style={{marginLeft: "800px",width:"300px"}}
-                  src={require("../assets/services/Rocket.avif").default}
+                  src={Rocket}
                   alt="Security"
                 />
               </div>
@@ -301,7 +315,7 @@ const PageContent = () => {
                   <Card.Body className={classes.boardingCardsinner}>
                     <div className={classes.cardIcon}>
                       <img
-                        src={require("../assets/services/money.avif").default}
+                        src={money}
                         alt="Logo"
                       />
                     </div>
@@ -320,7 +334,7 @@ const PageContent = () => {
                   <Card.Body className={classes.boardingCardsinner}>
                     <div className={classes.cardIcon}>
                       <img
-                        src={require("../assets/services/Deal.avif").default}
+                        src={Deal}
                         alt="Logo"
                       />
                     </div>
@@ -338,7 +352,7 @@ const PageContent = () => {
                   <Card.Body className={classes.boardingCardsinner}>
                     <div className={classes.cardIcon}>
                       <img
-                        src={require("../assets/services/service.avif").default}
+                        src={service}
                         alt="Logo"
                       />
                     </div>
@@ -359,7 +373,7 @@ const PageContent = () => {
                   <Card.Body className={classes.boardingCardsinner}>
                     <div className={classes.cardIcon}>
                       <img
-                        src={require("../assets/services/Analytics.avif").default}
+                        src={Analytics}
                         alt="Icon"
                       />
                     </div>
@@ -378,7 +392,7 @@ const PageContent = () => {
                   <Card.Body className={classes.boardingCardsinner}>
                     <div className={classes.cardIcon}>
                       <img
-                        src={require("../assets/services/Merchandise.avif").default}
+                        src={Merchandise}
                         alt="Logo"
                       />
                     </div>
@@ -399,7 +413,7 @@ const PageContent = () => {
                   <Card.Body className={classes.boardingCardsinner}>
                     <div className={classes.cardIcon}>
                       <img
-                        src={require("../assets/services/Community.avif").default}
+                        src={Community}
                         alt="Icon"
                       />
                     </div>
@@ -446,7 +460,7 @@ const PageContent = () => {
             <div className={classes.patternImg} style={{background:'black'}}>
             {/* <marquee behavior="scroll" direction="up" scrollamount="1"> */}
               <img 
-                src={require("../assets/pattern.png").default}
+                src={pattern}
                 alt="pattern"
             />
               
