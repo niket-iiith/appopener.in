@@ -11,6 +11,7 @@ import video1 from "../assets/video1.avif";
 import video2 from "../assets/video2.avif";
 import video3 from "../assets/video3.avif";
 import video4 from "../assets/video4.avif";
+import creatoryt from "../assets/creatoryt.avif";
 import { MdOutlineIosShare } from "react-icons/md";
 /* import { PiYoutubeLogoThin,PiTwitterLogoThin,PiInstagramLogoThin } from "react-icons/pi"; */
 import { FaArrowRight } from "react-icons/fa";
@@ -189,7 +190,7 @@ class Splash extends Component {
   </Link>
           <p className='user-tag'><span className=' pb-1 font-[40px]'>PPØ</span><span></span></p>
         </div>
-        <a href="https://appopener.ai/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
+        <a href="https://appopener.in/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
         <div className='subscribe-button bg-black'>
           <button className="bg-black  text-white">
             Contri
@@ -225,8 +226,8 @@ class Splash extends Component {
               <MdOutlineIosShare color='white' size='11px'/>
             </button>  */}
 
-<div className='video-info flex bg-[#232222]'>
-    <img className='channel-logo' src={logo} alt='Channel Logo' />
+<div className='video-info flex'>
+    <img className='channel-logo' src={creatoryt} alt='Channel Logo' />
     <div className='video-details'>
       <h4 className='video-title'>Go Beyond Creativity with AppOpener</h4>
       <p className='channel-name'>CreatorCosmos</p>
@@ -336,106 +337,11 @@ class Splash extends Component {
           </div>
         </div> */}
 
-<div >
+<div  className="mt-4">
         <BrandTray items={imageData}/>
       </div> 
            
-        {/*  <div>
-      
-       <div className="stories-container flex space-x-2 mx-2 ">
-      <div  className="story-item flex-row gap-3  items-center">
-        <div className="story-avatar-wrapper">
-        <a href="https://shop.creatorcosmos.com/" target="_blank" rel="noopener noreferrer">
-          <img
-            src={CREATORS}
-            alt=" "
-            className="story-avatar rounded-full border-4 border-black p-1 "
-            style={{ width: '70px', height: '70px' }}
-          />
-  </a>
-        </div>
-  
-        <div className="story-avatar-wrapper">
-        <a href="https://superprofile.bio/" target="_blank" rel="noopener noreferrer">
-          <img
-            src={superprofile}
-            alt=" "
-            className="story-avatar rounded-full border-4 border-black-500 p-1"
-            style={{ width: '70px', height: '70px' }}
-          />
-          </a>
-        </div>
-  
-        <div className="story-avatar-wrapper">
-        <a href="https://spwnser.com/" target="_blank" rel="noopener noreferrer">
-          <img
-            src={slogo}
-            alt=" "
-            className="story-avatar rounded-full border-4 border-black-500 p-1"
-            style={{ width: '70px', height: '70px' }}
-          />
-          </a>
-        </div>
-        <div className="story-avatar-wrapper">
-        <a href="https://admin.loginskip.com/" target="_blank" rel="noopener noreferrer">
-          <img
-            src={loginskip}
-            alt=" "
-            className="story-avatar rounded-full border-4 border-black-500 p-1"
-            style={{ width: '70px', height: '70px' }}
-          />
-          </a>
-        </div>
-        <div className="story-avatar-wrapper">
-        <a href="https://shop.creatorcosmos.com/" target="_blank" rel="noopener noreferrer">
-          <img
-            src={CREATORS}
-            alt=" "
-            className="story-avatar rounded-full border-4 border-black p-1 "
-            style={{ width: '70px', height: '70px' }}
-          />
-  </a>
-        </div>
-        <div className="story-avatar-wrapper">
-      <a href="https://superprofile.bio/" target="_blank" rel="noopener noreferrer">
-        <img
-          src={superprofile}
-          alt=" "
-          className="story-avatar rounded-full border-4 border-black-500 p-1"
-          style={{ width: '70px', height: '70px' }}
-        />
-      </a>
-    </div>
-
-    <div className="story-avatar-wrapper">
-      <a href="https://spwnser.com/" target="_blank" rel="noopener noreferrer">
-        <img
-          src={slogo}
-          alt=" "
-          className="story-avatar rounded-full border-4 border-black-500 p-1"
-          style={{ width: '70px', height: '70px' }}
-        />
-      </a>
-    </div>
-
-    <div className="story-avatar-wrapper">
-      <a href="https://admin.loginskip.com/" target="_blank" rel="noopener noreferrer">
-        <img
-          src={loginskip}
-          alt=" "
-          className="story-avatar rounded-full border-4 border-black-500 p-1"
-          style={{ width: '70px', height: '70px' }}
-        />
-      </a>
-    </div>
-  
-      </div>
-  </div>  </div> */}
-        {/* <div className='video-desc'>
-          <p className='md-text'>AppOpener</p>
-          <p>Your path to digital success starts here, with AppOpener</p>
-    
-        </div> */}
+     
       </div>
       </div>
 
