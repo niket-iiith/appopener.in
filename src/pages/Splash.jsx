@@ -90,20 +90,22 @@ class Splash extends Component {
       }, 1000); 
     });
   }
-  handleRedirect() {
-    const app_intend = this.state.intentvalue === "Desktop" || this.state.intentvalue === "Mobile"
-      ? this.state.original_url
-      : this.state.intentvalue;
-
-    if (this.state.ostype === "windows") {
-      const click_link = document.getElementById("abcd");
-      click_link.setAttribute("href", app_intend);
-      click_link.click();
-    } else {
-      window.location.assign(app_intend);
-    }
-  }
   
+  handleRedirect() {
+      const app_intend = this.state.intentvalue === "Desktop" || this.state.intentvalue === "Mobile"
+        ? this.state.original_url
+        : this.state.intentvalue;
+  
+      if (this.state.ostype === "windows") {
+          const click_link = document.getElementById("abcd");
+          click_link.setAttribute("href", app_intend);
+          click_link.click();
+      } 
+      else {
+          window.location.assign(app_intend);
+      }
+  }
+
   render() {
     const carouselItems = [
       {
@@ -293,6 +295,7 @@ class Splash extends Component {
              </div>
            </button>
           )}
+          
         </div>
 
         {/* Cancel Button */}
@@ -305,37 +308,7 @@ class Splash extends Component {
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
               }}
               onClick={this.stopRedirecting}
-            >
-              Cancel
-            </button>
-          </div>
-        )}
-
-       
-        
-        <div className='ml-2 flex '  >
-       
-       {/*  <div className='creator-details mt-3'>
-          <div className='creator-name-tag'>
-            <p><span className='creator-name '>AppOpener</span> <span className='creator-tag'></span></p>
-          </div>
-          <a href="https://appopener.com/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
-          <button className='cd-subscribe mt-[-21px]'>
-            Subscribe
-          </button>
-          </a>
-        </div> */}
-      {/*   <div className='numbers'>
-          <div>
-            <p><span className='lg-text'>1.2M</span><span className='md-text'>Subscribers</span></p>
-          </div>
-          <div>
-            <p><span className='lg-text'>120K</span><span className='md-text'>Views</span></p>
-          </div>
-          <div>
-            <p><span className='lg-text'>500</span><span className='md-text'>Videos</span></p>
-          </div>
-        </div> */}
+     
 
 <div  className="mt-4">
         <BrandTray items={imageData}/>
