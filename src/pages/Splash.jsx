@@ -190,7 +190,7 @@ class Splash extends Component {
         <Link to="/">
     <Avatar alt="logo" src={logo} sx={{ width: 65, height: 65 }} />
   </Link>
-          <p className='user-tag'><span className=' pb-1 font-[40px]'>PPØ</span><span></span></p>
+          <p className='user-tag'><span className=' pb-1 font-[40px]'>APPØ</span><span></span></p>
         </div>
         <a href="https://appopener.in/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
         <div className='subscribe-button bg-black'>
