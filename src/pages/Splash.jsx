@@ -5,7 +5,7 @@ import { getURLandredirect } from "../helper/api";
 import "../css/splash.css";
 import Avatar from '@mui/material/Avatar';
 import CREATORS from "../assets/file.png";
-import youtube from "../assets/youtube.svg";
+/* import youtube from "../assets/youtube.svg"; */
 import superprofile from "../assets/superprofile.png";
 import video1 from "../assets/video1.avif";
 import video2 from "../assets/video2.avif";
@@ -15,11 +15,12 @@ import { MdOutlineIosShare } from "react-icons/md";
 /* import { PiYoutubeLogoThin,PiTwitterLogoThin,PiInstagramLogoThin } from "react-icons/pi"; */
 import { FaArrowRight } from "react-icons/fa";
 import Carousel from '../components/Carousel';
+import BrandTray from '../components/BrandTray';
 import logo from "../assets/logo.avif";
 import slogo from "../assets/slogo.avif";
 import loginskip from "../assets/loginskip.png";
-import instagram from "../assets/instagram.png";
-import twitter from "../assets/twitter.png";
+/* import instagram from "../assets/instagram.png";
+import twitter from "../assets/twitter.png"; */
 import appopeneryt from "../assets/appopeneryt.avif";
 import { Link } from 'react-router-dom';
 import { FaYoutube } from 'react-icons/fa';
@@ -101,7 +102,7 @@ class Splash extends Component {
       window.location.assign(app_intend);
     }
   }
-
+  
   render() {
     const carouselItems = [
       {
@@ -111,8 +112,8 @@ class Splash extends Component {
         width: 300,
         height: 200,
         aspectRatio: "1280/720",
-        title: "AppOpener",
-        description: "Your path to digital success starts here, with AppOpener",
+        title: "CreatorCosmos",
+        description: "Go Beyond Creativity with AppOpener",
       },
       {
         image: appopeneryt,
@@ -121,8 +122,8 @@ class Splash extends Component {
         width: 300,
         height: 200,
         aspectRatio: "1280/720",
-        title: "AppOpener",
-        description: "Your path to digital success starts here, with AppOpener",
+        title: "Creator Cosmos",
+        description: "Not an Ordinary URL Shortner - AppOpener.com - Intro",
       },
       {
         image: video2,
@@ -132,7 +133,7 @@ class Splash extends Component {
         height: 200,
         aspectRatio: "1280/720",
         title: "AppOpener",
-        description: "Your path to digital success starts here, with AppOpener",
+        description: "Join AppOpener Today!",
       },
       {
         image: video3,
@@ -142,7 +143,7 @@ class Splash extends Component {
         height: 200,
         aspectRatio: "1280/720",
         title: "Appopener",
-        description: "Your path to digital success starts here, with AppOpener",
+        description: "Let's learn about SEO in simple terms! 🚀",
       },
       {
         image: video4,
@@ -152,9 +153,31 @@ class Splash extends Component {
         height: 200,
         aspectRatio: "1280/720",
         title: "AppOpener",
-        description: "Your path to digital success starts here, with AppOpener",
+        description: "The Evolution of Deep Linking",
       },
       // Add more items as needed
+    ];
+    const imageData = [
+      {
+        link: "https://shop.creatorcosmos.com/",
+        imgSrc: CREATORS,
+        alt: "Superprofile"
+      },
+      {
+        link: "https://superprofile.bio/",
+        imgSrc: superprofile,
+        alt: "Superprofile"
+      },
+      {
+        link: "https://spwnser.com/",
+        imgSrc: slogo,
+        alt: "Sponsor logo"
+      },
+      {
+        link: "https://admin.loginskip.com/",
+        imgSrc: loginskip,
+        alt: "Login Skip"
+      }
     ];
     return (
       <>
@@ -181,11 +204,11 @@ class Splash extends Component {
       
       <div className='hero-section'>
         <div className='latest-link '>
-        <button onClick={this.handleRedirect} >
+   
           <div className='latest-link-img  '>
              <iframe className="vid"
-             width="500%"
-             height="auto"
+             /* width="100%"
+             height="auto" */
       
       src="https://www.youtube.com/embed/D3ulWU96yTs?autoplay=1&loop=1&playlist=D3ulWU96yTs&mute=1"
       title="Go Beyond Creativity with AppOpener | CreatorCosmos"
@@ -201,14 +224,25 @@ class Splash extends Component {
             {/* <button>
               <MdOutlineIosShare color='white' size='11px'/>
             </button>  */}
+
+<div className='video-info flex bg-[#232222]'>
+    <img className='channel-logo' src={logo} alt='Channel Logo' />
+    <div className='video-details'>
+      <h4 className='video-title'>Go Beyond Creativity with AppOpener</h4>
+      <p className='channel-name'>CreatorCosmos</p>
+    </div>
+  </div>
+
+
           </div>
-          </button>
-          <div className='videoLinks flex-row    pb-3'>
-            <div className='flex'>
-            <p><span className='creator-name flex '>AppOpener</span> </p>
-              <a id="abcd" target="_blank">
+          <a id="abcd" target="_blank">
           
           </a>  
+       
+        {/*   <div className='videoLinks flex-row    pb-3'>
+            <div className='flex'>
+            <p><span className='creator-name flex '>AppOpener</span> </p>
+             
             </div>
               <div className='flex gap-2 mr-3'>
               <a href="https://shop.creatorcosmos.com/" target="_blank" rel="noopener noreferrer">
@@ -229,7 +263,7 @@ class Splash extends Component {
         </a>
              
             </div>  
-          </div>
+          </div> */}
          {/*  <p>"Your path to digital success starts here, with AppOpener"</p> */}
           {this.state.showRedirectText && (
             <div className="countdown-text flex justify-center">
@@ -301,7 +335,12 @@ class Splash extends Component {
             <p><span className='lg-text'>500</span><span className='md-text'>Videos</span></p>
           </div>
         </div> */}
-         <div>
+
+<div >
+        <BrandTray items={imageData}/>
+      </div> 
+           
+        {/*  <div>
       
        <div className="stories-container flex space-x-2 mx-2 ">
       <div  className="story-item flex-row gap-3  items-center">
@@ -391,7 +430,7 @@ class Splash extends Component {
     </div>
   
       </div>
-  </div>  </div>
+  </div>  </div> */}
         {/* <div className='video-desc'>
           <p className='md-text'>AppOpener</p>
           <p>Your path to digital success starts here, with AppOpener</p>

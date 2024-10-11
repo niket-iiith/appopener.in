@@ -1,7 +1,8 @@
 .main-container{
   /* font-family: "Oswald", sans-serif;  */
  /*  font-family: "Noto Serif", serif; */
-  font-family: "Nerko One", cursive; 
+  font-family: "Nerko One", cursive;
+  background-color: #232222;
 
 }
 .header{
@@ -57,8 +58,8 @@
   align-items: center; */
  
   margin-top: 40px;
-  margin-left: 20px;
-  margin-right: 20px
+/*   margin-left: 20px;
+  margin-right: 20px */
 }
 
 .latest-link{
@@ -80,20 +81,14 @@
   /* padding-left: 12px; */
 }
 
-.latest-link-img img{
-  width: 97%;
-  border-radius: 2%;
-  height: 200px;
-}
-
 .latest-link-img button{
   position: absolute;
 	padding: 16px;
 	background-color: black;
 	border-radius: 16px;
 	top: 10px;
-	right: 20px;
-	width: 50px;
+	
+	
 }
 
 .videoLinks{
@@ -180,7 +175,7 @@
 }
 .vid{
   width: 100%;
-  height: 300px;
+  height: 250px;
 }
 .conti{
   padding-left: 57px;
@@ -236,54 +231,6 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
 
 }
-.stories-container {
-  display: flex;
-  gap: 1rem; /* Spacing between each story */
-  padding: 1rem 0;
-  overflow-x: auto;
-   /* Allows horizontal scrolling for stories */
-}
-
-
-
-.story-avatar-wrapper {
-  /* position: relative; */
-  flex-shrink: 0;
-  margin-right: 20px;
-
- /*  background-color: black; 
-  padding: 1px; 
-  border-radius: 50%;  */
-}
-
-.story-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%; /* Makes the image circular */
-  border: -7px solid transparent; /* Transparent border to avoid jump when hovering */
-   padding: 2px;
-  transition: border 0.3s ease;
-}
-
-.story-avatar:hover {
-  border-color: black; 
-}
-
-.story-item p {
- /*  margin-top: 8px; */
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #333; /* You can adjust this color based on your theme */
-}
-
-.stories-container::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for smoother look */
-}
-
-.stories-container {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
-}
 .coming-soon-container {
   background-color: black;
   display: flex;
@@ -306,14 +253,7 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   white-space: nowrap; /* Prevent text from breaking into multiple lines */
   animation: scroll 70s linear infinite; /* Animation that makes the text move */
 }
-.story-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  animation: scrol 4s linear infinite;
-}
+
 @keyframes scroll {
   0% {
     transform: translateX(0%); 
@@ -322,17 +262,6 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     transform: translateX(-100%); 
   }
 }
-@keyframes scrol {
-  0% {
-    transform: translateX(0%); 
-  }
-  100% {
-    transform: translateX(-20%); 
-  }
-}
-
-
-
 .continueButton {
   width: 100%; /* Make the button take full width */
   background: #D72323;
@@ -381,4 +310,40 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   padding: 6px; 
 /*   border-radius: 50%;  */
 
+}
+.video-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  background-color: #232222;
+}
+
+.channel-logo {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 10px;
+  padding: 5px;
+  margin-top: -5px;
+  background-color: #000000;
+}
+
+.video-details {
+  display: flex;
+  flex-direction: column;
+   padding-top: 10px; 
+}
+
+.video-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.channel-name {
+  font-size: 18px;
+  color: #606060;
 }

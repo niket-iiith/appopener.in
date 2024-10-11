@@ -74,7 +74,7 @@ const ExpandableFooter = () => {
         </div>
       </div>
       <div>
-        <p className='copywrite font-grey'>© 2024 Spawnser, LLC. All Rights Reserved.</p>
+        <p className='copywrite '>© 2024 ONI, LLC. All Rights Reserved.</p>
       </div>
     </footer>
   );

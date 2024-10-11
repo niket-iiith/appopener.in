@@ -14,7 +14,7 @@
     justify-content: center;
     position: relative;
     width: 100%; /* Adjusted width */
-    height: 450px; /* Fixed height for consistent card size */
+    height: 420px; /* Fixed height for consistent card size */
     overflow: hidden;
     perspective: 1000px; /* Hides the overflow to make the sliding smooth */
   }
@@ -86,10 +86,11 @@
   }
   
   .carousel__content {
-    padding: 10px;
+    padding: 5px;
     color: white;
     text-align: left;
     position: relative;
+    /* height: 50px; */
   }
   
   .carousel__share-btn {
@@ -105,7 +106,7 @@
   .carousel__title {
     font-size: 1.1rem;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 5px;
   }
   
   .carousel__description {
