@@ -308,6 +308,14 @@ class Splash extends Component {
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
               }}
               onClick={this.stopRedirecting}
+               >
+              Cancel
+            </button>
+          </div>
+        )}
+       
+        
+        <div className='ml-2 flex '  >
      
 
 <div  className="mt-4">
