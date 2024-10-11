@@ -167,12 +167,12 @@ class Splash extends Component {
         alt: "Superprofile"
       },
       {
-        link: "https://superprofile.bio/",
+        link: "https://cosmofeed.com/appopener",
         imgSrc: superprofile,
         alt: "Superprofile"
       },
       {
-        link: "https://spwnser.com/",
+        link: "https://spawnser.com/",
         imgSrc: slogo,
         alt: "Sponsor logo"
       },
