@@ -40,8 +40,10 @@
 }
 
 .user-tag{
-  padding-left: 10px;
+  /* padding-left: 10px; */
   padding-top: 20px;
+  font-size: 92px;
+  font-family: "Edu AU VIC WA NT Guides", cursive;
   /* font-family: "Oswald", sans-serif; */
 }
 .user-tag span,.numbers div span{
@@ -74,6 +76,7 @@
   position: relative;
   border-radius: 2px;
   display: inline-block;
+  width: 100%;
   /* padding-left: 12px; */
 }
 
@@ -121,7 +124,7 @@
 .creator-name,.lg-text{
   font-size: x-large;
   font-weight: 700;
-  font-family: "Oswald", sans-serif;
+  /* font-family: "Oswald", sans-serif; */
 }
 
 .creator-tag,.md-text{
@@ -241,14 +244,7 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
    /* Allows horizontal scrolling for stories */
 }
 
-.story-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  animation: scrol 6s linear infinite;
-}
+
 
 .story-avatar-wrapper {
   /* position: relative; */
@@ -295,6 +291,7 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   align-items: center;
   height:40px; /* Full screen height */
   overflow: hidden; 
+  font-family: "Oswald", sans-serif;
  /* Adjust based on avatar height */ /* Prevent the text from overflowing the container */
 }
 
@@ -307,23 +304,30 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   color: white;
 /*   display: inline-block; */
   white-space: nowrap; /* Prevent text from breaking into multiple lines */
-  animation: scroll 30s linear infinite; /* Animation that makes the text move */
+  animation: scroll 70s linear infinite; /* Animation that makes the text move */
 }
-
+.story-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  animation: scrol 4s linear infinite;
+}
 @keyframes scroll {
   0% {
-    transform: translateX(0%); /* Start from outside the right side */
+    transform: translateX(0%); 
   }
   100% {
-    transform: translateX(-70%); /* Move off the left side */
+    transform: translateX(-100%); 
   }
 }
 @keyframes scrol {
   0% {
-    transform: translateX(0%); /* Start from outside the right side */
+    transform: translateX(0%); 
   }
   100% {
-    transform: translateX(-60%); /* Move off the left side */
+    transform: translateX(-20%); 
   }
 }
 

@@ -1,7 +1,7 @@
 // ExpandableFooter.js
 import React, { useState, useEffect, useRef } from 'react';
 import '../css/expandable-footer.css';
-import { FaFacebook, FaInstagram, FaMailBulk, FaMobile, FaPinterest, FaTwitter, FaWhatsapp, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaPinterest, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 const ExpandableFooter = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -28,10 +28,10 @@ const ExpandableFooter = () => {
     <footer ref={footerRef} className="expandable-footer">
       <div className="footer-container">
           <nav className={`main-nav ${isSticky? 'sticky': ''}`}>
-            <a href="#home">Home</a>
-            <a href="#explore">Explore</a>
-            <a href="#learn">Learn</a>
-            <a href="#contact">Contact</a>
+          <Link to="/"><a>Home</a> </Link>
+            <a href="https://www.appopener.in/trending" target='_blank'>Trending</a>
+            <a href="#learn">Help?</a>
+            {/* <a href="#contact">Contact</a> */}
           </nav>
         
         <div className={`expanded-content flex  ${isExpanded ? 'visible' : ''}`}>
@@ -72,6 +72,9 @@ const ExpandableFooter = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div>
+        <p className='copywrite font-grey'>© 2024 Spawnser, LLC. All Rights Reserved.</p>
       </div>
     </footer>
   );

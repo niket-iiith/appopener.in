@@ -21,6 +21,8 @@ import loginskip from "../assets/loginskip.png";
 import instagram from "../assets/instagram.png";
 import twitter from "../assets/twitter.png";
 import appopeneryt from "../assets/appopeneryt.avif";
+import { Link } from 'react-router-dom';
+import { FaYoutube } from 'react-icons/fa';
 
 
 import ExpandableFooter from '../components/ExpandableFooter';
@@ -159,13 +161,15 @@ class Splash extends Component {
     <div className='main-container'>
       <div className='header'>
         <div className='user-details'>
-          <Avatar alt="logo" src={logo} sx={{ width: 45, height: 45 }}/>
-          <p className='user-tag'><span className='md-text'>AppOpener</span><span></span></p>
+        <Link to="/">
+    <Avatar alt="logo" src={logo} sx={{ width: 65, height: 65 }} />
+  </Link>
+          <p className='user-tag'><span className=' pb-1 font-[40px]'>PPØ</span><span></span></p>
         </div>
         <a href="https://appopener.ai/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
         <div className='subscribe-button bg-black'>
           <button className="bg-black  text-white">
-            Subscribe
+            Contri
           </button>
         </div>
         </a>
@@ -226,7 +230,7 @@ class Splash extends Component {
              
             </div>  
           </div>
-          <p>"Your path to digital success starts here, with AppOpener"</p>
+         {/*  <p>"Your path to digital success starts here, with AppOpener"</p> */}
           {this.state.showRedirectText && (
             <div className="countdown-text flex justify-center">
               {``}
@@ -234,7 +238,7 @@ class Splash extends Component {
           )} 
         </div>
         <div className="conti">
-        <div className="continueButton stickyButton bg-black text-white">
+        <div className="continueButton stickyButton bg-red-500 text-white">
           {this.state.showRedirectText ? (
             <p className="pt-3">Redirecting in {this.state.countdown} seconds...</p>
           ) : (
@@ -246,9 +250,11 @@ class Splash extends Component {
            className=" bg-black  "
            style={{ width: '40px', height: '40px' }}
          /> */}
-             <div className=' gap-2   text-red-500 flex '>
+         <FaYoutube style={{color:'white'}} size="32px"/>
+             <div className=' gap-2 pt-1   text-red-500 flex '>
+             
              Watch Now
-             <FaArrowRight className='flex pt-1'color='red' size='20px'/>
+             <FaArrowRight className='flex pt-1'color='white' size='20px'/>
              </div>
            </button>
           )}
