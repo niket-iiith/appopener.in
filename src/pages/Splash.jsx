@@ -110,7 +110,7 @@ class Splash extends Component {
     const carouselItems = [
       {
         image: video1,
-        link: "https://appopener.in/ig/6cozddckl",
+        link: "https://appopener.in/yt/0sjnsz5k8",
         alt: "Video Thumbnail",
         width: 300,
         height: 200,
@@ -120,7 +120,7 @@ class Splash extends Component {
       },
       {
         image: appopeneryt,
-        link: "https://appopener.in/yt/mvb5pq2tn",
+        link: "https://appopener.in/yt/1ea6xi5pc",
         alt: "Video Thumbnail",
         width: 300,
         height: 200,
