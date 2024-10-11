@@ -1,16 +1,34 @@
 import { Component } from "react";
 import React from "react";
-import classes from "../components/Styles.module.css";
+
 import { getURLandredirect } from "../helper/api";
 import "../css/splash.css";
-import logo from "../assets/logo.png";
-import new_logo from "../assets/Omni-logo.png";
-import deetmelogo from "../assets/deet-me-logo.png";
-import DeetLogo from "../assets/deet-logo.png";
-import AdUI from "../assets/ui.png";
-import deetbg from "../assets/deet.png"
-import appopener_text from "../assets/ac.png";
-import GoogleAd from "../components/GoogleAd";
+import Avatar from '@mui/material/Avatar';
+import CREATORS from "../assets/file.png";
+/* import youtube from "../assets/youtube.svg"; */
+import superprofile from "../assets/superprofile.png";
+import video1 from "../assets/video1.avif";
+import video2 from "../assets/video2.avif";
+import video3 from "../assets/video3.avif";
+import video4 from "../assets/video4.avif";
+import creatoryt from "../assets/creatoryt.avif";
+import { MdOutlineIosShare } from "react-icons/md";
+/* import { PiYoutubeLogoThin,PiTwitterLogoThin,PiInstagramLogoThin } from "react-icons/pi"; */
+import { FaArrowRight } from "react-icons/fa";
+import Carousel from '../components/Carousel';
+import BrandTray from '../components/BrandTray';
+import logo from "../assets/logo.avif";
+import slogo from "../assets/slogo.avif";
+import loginskip from "../assets/loginskip.png";
+/* import instagram from "../assets/instagram.png";
+import twitter from "../assets/twitter.png"; */
+import appopeneryt from "../assets/appopeneryt.avif";
+import { Link } from 'react-router-dom';
+import { FaYoutube } from 'react-icons/fa';
+
+
+import ExpandableFooter from '../components/ExpandableFooter';
+
 //import splash_adv from "../assets/splash/splash_adv.png";
 
 
@@ -23,10 +41,24 @@ class Splash extends Component {
       ostype: "", 
       countdown: 3,
       showRedirectText: true,
+      redirectCanceled: false,
     };
     this.handleRedirect = this.handleRedirect.bind(this); 
+    this.stopRedirecting = this.stopRedirecting.bind(this);
   }
 
+  stopRedirecting() {
+    clearInterval(this.countdownInterval); // Stop the countdown
+    this.setState({
+      countdown: "",
+      redirectCanceled: true,
+      showRedirectText: false,  // Hide the countdown text
+    });
+  }
+
+   
+  
+ 
 
   componentDidMount() {
     let apptag = this.props.match.params.apptype;
@@ -74,59 +106,231 @@ class Splash extends Component {
       }
   }
 
- 
   render() {
+    const carouselItems = [
+      {
+        image: video1,
+        link: "https://appopener.in/ig/6cozddckl",
+        alt: "Video Thumbnail",
+        width: 300,
+        height: 200,
+        aspectRatio: "1280/720",
+        title: "CreatorCosmos",
+        description: "Go Beyond Creativity with AppOpener",
+      },
+      {
+        image: appopeneryt,
+        link: "https://appopener.in/yt/mvb5pq2tn",
+        alt: "Video Thumbnail",
+        width: 300,
+        height: 200,
+        aspectRatio: "1280/720",
+        title: "Creator Cosmos",
+        description: "Not an Ordinary URL Shortner - AppOpener.com - Intro",
+      },
+      {
+        image: video2,
+        link: "https://appopener.in/ig/32vlpkwoz",
+        alt: "Video Thumbnail",
+        width: 300,
+        height: 200,
+        aspectRatio: "1280/720",
+        title: "AppOpener",
+        description: "Join AppOpener Today!",
+      },
+      {
+        image: video3,
+        link: "https://appopener.in/ig/3s92ztb5f",
+        alt: "Video Thumbnail",
+        width: 300,
+        height: 200,
+        aspectRatio: "1280/720",
+        title: "Appopener",
+        description: "Let's learn about SEO in simple terms! 🚀",
+      },
+      {
+        image: video4,
+        link: "https://appopener.in/ig/mmunty2wp",
+        alt: "Video Thumbnail",
+        width: 300,
+        height: 200,
+        aspectRatio: "1280/720",
+        title: "AppOpener",
+        description: "The Evolution of Deep Linking",
+      },
+      // Add more items as needed
+    ];
+    const imageData = [
+      {
+        link: "https://shop.creatorcosmos.com/",
+        imgSrc: CREATORS,
+        alt: "Superprofile"
+      },
+      {
+        link: "https://superprofile.bio/",
+        imgSrc: superprofile,
+        alt: "Superprofile"
+      },
+      {
+        link: "https://spwnser.com/",
+        imgSrc: slogo,
+        alt: "Sponsor logo"
+      },
+      {
+        link: "https://admin.loginskip.com/",
+        imgSrc: loginskip,
+        alt: "Login Skip"
+      }
+    ];
     return (
-     
-      <div className={classes.mainContainer}>
-        <div className="App">
+      <>
+    <div className='main-container'>
+      <div className='header'>
+        <div className='user-details'>
+        <Link to="/">
+    <Avatar alt="logo" src={logo} sx={{ width: 65, height: 65 }} />
+  </Link>
+          <p className='user-tag'><span className=' pb-1 font-[40px]'>PPØ</span><span></span></p>
+        </div>
+        <a href="https://appopener.in/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
+        <div className='subscribe-button bg-black'>
+          <button className="bg-black  text-white">
+            Contri
+          </button>
+        </div>
+        </a>
+      </div>
+    
+<div className="coming-soon-container mt-2">
+        <p className="sliding-text">&bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener" &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener" &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users </p>
+      </div>
+      
+      <div className='hero-section'>
+        <div className='latest-link '>
+   
+          <div className='latest-link-img  '>
+             <iframe className="vid"
+             /* width="100%"
+             height="auto" */
+      
+      src="https://www.youtube.com/embed/D3ulWU96yTs?autoplay=1&loop=1&playlist=D3ulWU96yTs&mute=1"
+      title="Go Beyond Creativity with AppOpener | CreatorCosmos"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    ></iframe>
+           {/*  <img src={video1} alt="Video thumbnail"></img> */}
+{/*             <div className="glass-effect">
+  <p className='text-sm font-bold text-white'>AppOpener</p>
+</div> */}
+            {/* <button>
+              <MdOutlineIosShare color='white' size='11px'/>
+            </button>  */}
 
-          {/* <GoogleAd slot="6552881547" googleAdId="ca-pub-5645705217995911"/> */}
+<div className='video-info flex'>
+    <img className='channel-logo' src={creatoryt} alt='Channel Logo' />
+    <div className='video-details'>
+      <h4 className='video-title'>Go Beyond Creativity with AppOpener</h4>
+      <p className='channel-name'>CreatorCosmos</p>
+    </div>
+  </div>
 
-          <div className="container-1">
-            {/* <img src={DeetLogo} alt="deet" />
-            <span>{`deet.me`}</span>
-            <a href="https://www.deet.me" target="_blank">
-                {`Claim your free deetname now! ➟`}
-            </a>
-            <br/> */}
-            <a id="abcd" target="_blank">
-              <button onClick={this.handleRedirect}>{`Continue to the Link`}</button>
-            </a>
+
           </div>
-
-          {this.state.showRedirectText && (
-            <div className="countdown-text">
-              {`Redirecting in ${this.state.countdown}...`}
+          <a id="abcd" target="_blank">
+          
+          </a>  
+       
+        {/*   <div className='videoLinks flex-row    pb-3'>
+            <div className='flex'>
+            <p><span className='creator-name flex '>AppOpener</span> </p>
+             
             </div>
+              <div className='flex gap-2 mr-3'>
+              <a href="https://shop.creatorcosmos.com/" target="_blank" rel="noopener noreferrer">
+              <img
+          src={twitter}
+          alt=" "
+          className="  flex "
+          style={{ width: '30px', height: '30px' }}
+        />
+        </a>
+        <a href="https://appopener.ai/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
+        <img
+          src={instagram}
+          alt=" "
+          className="  flex mr-2"
+          style={{ width: '30px', height: '30px' }}
+        />
+        </a>
+             
+            </div>  
+          </div> */}
+         {/*  <p>"Your path to digital success starts here, with AppOpener"</p> */}
+          {this.state.showRedirectText && (
+            <div className="countdown-text flex justify-center">
+              {``}
+            </div>
+          )} 
+        </div>
+        <div className="conti">
+        <div className="continueButton stickyButton bg-red-500 text-white">
+          {this.state.showRedirectText ? (
+            <p className="pt-3">Redirecting in {this.state.countdown} seconds...</p>
+          ) : (
+            <button onClick={this.handleRedirect} className='flex gap-2 flex-row  '>
+            {/*  <PiYoutubeLogoThin  color='red' size='30px'/> */}
+{/*             <img
+           src={youtube}
+           alt=" "
+           className=" bg-black  "
+           style={{ width: '40px', height: '40px' }}
+         /> */}
+         <FaYoutube style={{color:'white'}} size="32px"/>
+             <div className=' gap-2 pt-1   text-red-500 flex '>
+             
+             Watch Now
+             <FaArrowRight className='flex pt-1'color='white' size='20px'/>
+             </div>
+           </button>
           )}
           
-          
-
-          <div className="container-2">
-            {/* <a
-                href="https://www.instagram.com/er.dheet/"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-            >
-                <img
-                src={deetpng}
-                alt="Win an iPhone14 Pro in just ₹150"
-                style={{ width: "100%", height: "100%" }}
-                />
-            </a> */}
-            <div>
-              {/* <iframe width="360" height="270" src="https://www.youtube-nocookie.com/embed/zm6xa3ggt5A?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-              {/* <iframe width="363" height="271" src="https://www.youtube.com/embed/zm6xa3ggt5A?autoplay=1" title="BB Ki Vines Productions- Taaza Khabar | Hotstar Specials | Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-              {/* <iframe width="360" height="270" src="https://www.youtube.com/embed/zm6xa3ggt5A?controls=0&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-              {/* <iframe width="420" height="315" src="https://www.youtube.com/embed/1k3HXPRDvCo?autoplay=1&mute=1"></iframe> */}
-            </div>
-          </div>
-
         </div>
+
+        {/* Cancel Button */}
+        {this.state.showRedirectText && (
+          <div className="cancel" id="cancel">
+            <button
+              style={{
+                color: "white",
+                fontWeight: "600",
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+              }}
+              onClick={this.stopRedirecting}
+     
+
+<div  className="mt-4">
+        <BrandTray items={imageData}/>
+      </div> 
+           
+     
       </div>
+      </div>
+
+      </div>
+       <div className='caro-container'>
+        <Carousel items={carouselItems}/>
+      </div> 
+      <div className='expand-container'>
+        <ExpandableFooter/>
+      </div>
+    </div>
+  </>
+
     );
   }
 }
+
 
 export default Splash;

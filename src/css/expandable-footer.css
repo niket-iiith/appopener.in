@@ -1,0 +1,115 @@
+.expandable-footer {
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30%;
+    padding-right: 30%;
+    height: 64px;
+  }
+  
+  .main-nav.sticky{
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .main-nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .main-nav a:hover {
+    color: #ccc;
+  }
+  
+  .expanded-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .expanded-content.visible {
+    max-height: 500px; /* Adjust this value based on your content */
+    transition: max-height 0.5s ease-in;
+  }
+  
+  .expanded-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-around;
+  }
+  
+  .expandable-content > div {
+    flex: 50%;
+  }
+  
+  .footer-section h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-section li {
+    margin-bottom: 5px;
+  }
+  
+  .footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .footer-section a:hover {
+    color: #ccc;
+  }
+  
+  @media (max-width: 800px) {
+    .expanded-content {
+      grid-template-columns: 1fr;
+    }
+    .main-nav {
+    
+      
+     padding-left: 20%;
+    padding-right: 20%;
+    }
+    .main-nav a {
+    
+      margin-left: 5px; 
+     
+    }
+  }
+  
+  .navbar-footer{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .copywrite{
+    display: flex;
+    font-family: "Oswald", sans-serif;
+    justify-content: center;
+   /*  align-items: center; */
+   color: gray;
+  }
