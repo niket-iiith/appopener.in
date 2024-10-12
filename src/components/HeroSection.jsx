@@ -18,6 +18,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import "../css/profile.css";
 import InApp from "detect-inapp";
 import logo from "../assets/logo.avif";
+import helmet from "../assets/helmet.avif";
 
 class HeroSection extends Component {
   constructor(props) {
@@ -616,7 +617,7 @@ class HeroSection extends Component {
                         bottom: "-12%",
                         position: "relative",
                       }}
-                      src={require("../assets/helmet.avif").default}
+                      src={helmet}
                       alt="company Logo"
                     />
     
