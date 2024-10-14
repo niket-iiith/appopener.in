@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const AdComponent = () => {
+  useEffect(() => {
+    // Initialize the ad when the component mounts
+    if (window.vitag && window.vitag.Init) {
+      window.vitag.Init.push(() => {
+        window.viAPItag.display("pw_42234");
+      });
+    }
+  }, []);
+
   return (
-    <div className="ad-container" style={{ margin: '20px 0', textAlign: 'center' }}>
-      {/* Insert your ad code here */}
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client="ca-pub-5645705217995911"
-        data-ad-slot="9492391764"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+    <div className="adsbyvli" data-ad-slot="pw_42234" style={{ margin: '20px 0', textAlign: 'center' }}>
+      {/* The ad will be displayed here */}
     </div>
   );
 };
