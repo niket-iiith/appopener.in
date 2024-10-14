@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const AdComponent = ({ adType }) => {
 
   useEffect(() => {
-    // Check if vitag is already loaded
+    
     const loadAds = () => {
       if (window.vitag && window.vitag.Init) {
         if (adType === 'sticky') {
@@ -24,16 +24,14 @@ const AdComponent = ({ adType }) => {
       }
     };
 
-    // Delay to ensure the vitag library is loaded
     const timeout = setTimeout(() => {
       loadAds();
     }, 500);
 
-    // Clean up timeout
+   
     return () => clearTimeout(timeout);
   }, [adType]);
 
-  // Render ad container based on the adType prop
   return (
     <div>
       {adType === 'horizontal' && <div className="adsbyvli" data-ad-slot="pw_42234"></div>}
