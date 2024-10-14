@@ -1,18 +1,32 @@
 import React, { useEffect } from 'react';
 
-const AdComponent = () => {
+// AdComponent: Reusable ad component that accepts 'type' as a prop
+const AdComponent = ({ adType }) => {
+  
   useEffect(() => {
-    // Initialize the ad when the component mounts
-    if (window.vitag && window.vitag.Init) {
-      window.vitag.Init.push(() => {
-        window.viAPItag.display("pw_42234");
+    const vitagInit = window.vitag?.Init || [];
+    
+    // Initialize ad slot based on type
+    if (adType === 'sticky') {
+      vitagInit.push(() => {
+        viAPItag.initStickyBanner('pw_42238');
+      });
+    } else if (adType === 'horizontal') {
+      vitagInit.push(() => {
+        viAPItag.display('pw_42234');
+      });
+    } else if (adType === 'inpost') {
+      vitagInit.push(() => {
+        viAPItag.display('pw_42235'); // Example: replace with actual in-post slot ID
       });
     }
-  }, []);
+  }, [adType]);
 
+  // Render the container for the selected ad type
   return (
-    <div className="adsbyvli" data-ad-slot="pw_42234" style={{ margin: '20px 0', textAlign: 'center', width: '400px', height:'500px'}}>
-      {/* The ad will be displayed here */}
+    <div>
+      {adType === 'horizontal' && <div className="adsbyvli" data-ad-slot="pw_42234"></div>}
+      {/* Add containers for other ad types as necessary */}
     </div>
   );
 };
