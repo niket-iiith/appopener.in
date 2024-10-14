@@ -110,7 +110,7 @@ class Splash extends Component {
     const carouselItems = [
       {
         image: video1,
-        link: "https://appopener.in/ig/6cozddckl",
+        link: "https://appopener.in/yt/0sjnsz5k8",
         alt: "Video Thumbnail",
         width: 300,
         height: 200,
@@ -120,7 +120,7 @@ class Splash extends Component {
       },
       {
         image: appopeneryt,
-        link: "https://appopener.in/yt/mvb5pq2tn",
+        link: "https://appopener.in/yt/1ea6xi5pc",
         alt: "Video Thumbnail",
         width: 300,
         height: 200,
@@ -167,12 +167,12 @@ class Splash extends Component {
         alt: "Superprofile"
       },
       {
-        link: "https://superprofile.bio/",
+        link: "https://cosmofeed.com/appopener",
         imgSrc: superprofile,
         alt: "Superprofile"
       },
       {
-        link: "https://spwnser.com/",
+        link: "https://spawnser.com/",
         imgSrc: slogo,
         alt: "Sponsor logo"
       },
@@ -190,7 +190,7 @@ class Splash extends Component {
         <Link to="/">
     <Avatar alt="logo" src={logo} sx={{ width: 65, height: 65 }} />
   </Link>
-          <p className='user-tag'><span className=' pb-1 font-[40px]'>PPØ</span><span></span></p>
+          <p className='user-tag'><span className=' pb-1 font-[40px]'>APPØ</span><span></span></p>
         </div>
         <a href="https://appopener.in/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
         <div className='subscribe-button bg-black'>
@@ -308,6 +308,14 @@ class Splash extends Component {
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
               }}
               onClick={this.stopRedirecting}
+               >
+              Cancel
+            </button>
+          </div>
+        )}
+       
+        
+        <div className='ml-2 flex '  >
      
 
 <div  className="mt-4">
