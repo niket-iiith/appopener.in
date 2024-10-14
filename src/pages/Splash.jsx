@@ -18,7 +18,7 @@ import { FaArrowRight } from "react-icons/fa";
 import Carousel from '../components/Carousel';
 import BrandTray from '../components/BrandTray';
 
-import AdComponent from '../components/AdComponent';
+import AdComponent from '../components/AdsComponent';
 import logo from "../assets/logo.avif";
 import slogo from "../assets/slogo.avif";
 import loginskip from "../assets/loginskip.png";
