@@ -30,7 +30,7 @@ const ExpandableFooter = () => {
           <nav className={`main-nav ${isSticky? 'sticky': ''}`}>
           <Link to="/"><a>Home</a> </Link>
             <a href="https://www.appopener.in/trending" target='_blank'>Trending</a>
-            <a href="#learn">Help?</a>
+            <a href="http://appopener.in/bloglist">Blogs</a>
             {/* <a href="#contact">Contact</a> */}
           </nav>
         

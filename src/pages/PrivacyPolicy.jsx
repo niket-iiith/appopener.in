@@ -7,6 +7,7 @@ import { Row, Col, Button, Container, Card } from "react-bootstrap";
 import { FaAmazonPay, FaDollarSign, FaWhatsapp } from "react-icons/fa";
 import HeroPrivacyPolicySection from "../components/HeroPrivacyPolicySection";
 import PatternLogo from "../assets/pattern.avif";
+import Float from "../components/floatingButton";
 
 export default function PrivacyPolicy() {
   return (
@@ -356,6 +357,7 @@ export default function PrivacyPolicy() {
           <img src={PatternLogo} alt="pattern" />
         </div>
       </div>
+      <Float/>
       <Footer />
     </div>
   );

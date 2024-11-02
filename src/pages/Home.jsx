@@ -4,6 +4,7 @@ import HeroSection from "../components/HeroSection";
 import PageContent from "../components/PageContent";
 import Footer from "../components/Footer";
 import { Component } from "react";
+import Float from "../components/floatingButton";
 
 class Home extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Home extends Component {
       <div className={classes.mainContainer}>     
        
        <HeroSection />
+       <Float/>
        <PageContent></PageContent>
        <Footer />
       </div>
