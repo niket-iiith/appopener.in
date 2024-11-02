@@ -20,19 +20,24 @@
   justify-content: center;
   align-items: center;
   padding-left: 0px;
-  margin-left: 20px;
+  margin-left: 3px;
 }
 
 .subscribe-button{
-  height:40px;
-  width: 100px;
+  height:41px;
+  width: 84px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 15px;
-  margin-right:30px;
-  border: 1px solid white ;
+  margin-right:16px;
+  margin-left: 10px;
+   border: 1px solid white ;
   border-radius: 5%;
+}
+.share-button{
+  width: 87px;
+ /* margin-bottom: 5px; */
 }
 
 .subscribe-button:hover{
@@ -42,14 +47,15 @@
 
 .user-tag{
   /* padding-left: 10px; */
-  padding-top: 20px;
-  font-size: 92px;
+  padding-top: 45px;
+  font-size: 71px;
   font-family: "Edu AU VIC WA NT Guides", cursive;
   /* font-family: "Oswald", sans-serif; */
 }
 .user-tag span,.numbers div span{
   display: block;
 }
+
 
 .hero-section{
   display: flex;
@@ -223,6 +229,7 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
   .conti{
     padding-left: 0px;
+    width: 100%;
   }
  /*  .vid{
     width: 100%;
@@ -337,13 +344,77 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .video-title {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 14px;
+ font-weight: bold; 
   margin: 0;
   color: white;
+  font-family: "Playwrite GB S", cursive;
 }
 
 .channel-name {
   font-size: 18px;
   color: #606060;
+}
+
+
+.share-options-modal {
+  position: fixed;
+  width: 100%;
+/*   top: 50%; */
+  left: 50%;
+  bottom: 0px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  background-color: #232222;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+.copy-link-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: black;
+  width: 100%;
+}
+.link-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-size: 14px;
+}
+.copy-button {
+   padding: 8px 12px;
+  background-color: #040404;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.share-options-modal button {
+  display: block;
+ /*  margin-top: 10px; */
+  padding: 8px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.share-icons a {
+  display: block;
+  margin: 5px 0;
+  color: blue;
+  text-decoration: none;
+}
+.closeBtn{
+  margin-left: 40%;
 }

@@ -4,11 +4,11 @@ import React from "react";
 import { getURLandredirect } from "../helper/api";
 import "../css/splash.css";
 import Avatar from '@mui/material/Avatar';
-import CREATORS from "../assets/file.png";
+/* import CREATORS from "../assets/file.png"; */
 /* import youtube from "../assets/youtube.svg"; */
-import superprofile from "../assets/superprofile.png";
+/* import superprofile from "../assets/superprofile.png"; */
 import video1 from "../assets/video1.avif";
-import video2 from "../assets/video2.avif";
+import video2 from "../assets/video2.PNG";
 import video3 from "../assets/video3.avif";
 import video4 from "../assets/video4.avif";
 import creatoryt from "../assets/creatoryt.avif";
@@ -16,21 +16,22 @@ import { MdOutlineIosShare } from "react-icons/md";
 /* import { PiYoutubeLogoThin,PiTwitterLogoThin,PiInstagramLogoThin } from "react-icons/pi"; */
 import { FaArrowRight } from "react-icons/fa";
 import Carousel from '../components/Carousel';
-import BrandTray from '../components/BrandTray';
+/* import BrandTray from '../components/BrandTray'; */
 
 import AdComponent from '../components/adsComponent';
 import logo from "../assets/logo.avif";
-import slogo from "../assets/slogo.avif";
-import loginskip from "../assets/loginskip.png";
+/* import slogo from "../assets/slogo.avif";
+import loginskip from "../assets/loginskip.png"; */
 /* import instagram from "../assets/instagram.png";
 import twitter from "../assets/twitter.png"; */
 import appopeneryt from "../assets/appopeneryt.avif";
 import { Link } from 'react-router-dom';
 import { FaYoutube } from 'react-icons/fa';
-
+import Float from "../components/floatingButton";
 
 import ExpandableFooter from '../components/ExpandableFooter';
-
+import share from "../assets/boot.avif";
+import NewAdComponent from "../components/newAdComponent";
 //import splash_adv from "../assets/splash/splash_adv.png";
 
 
@@ -44,6 +45,7 @@ class Splash extends Component {
       countdown: 3,
       showRedirectText: true,
       redirectCanceled: false,
+      showShareOptions: false,
     };
     this.handleRedirect = this.handleRedirect.bind(this); 
     this.stopRedirecting = this.stopRedirecting.bind(this);
@@ -107,6 +109,103 @@ class Splash extends Component {
           window.location.assign(app_intend);
       }
   }
+  handleShare = async () => {
+    const shareData = {
+      title: "Check out this site!",
+      url: window.location.href,
+    };
+  
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        console.log("Link shared successfully");
+      } catch (error) {
+        console.error("Error sharing the link:", error);
+      }
+    } else {
+      this.setState({ showShareOptions: true });
+      
+    
+    }
+  }; 
+ 
+  handleCopyLink = async () => {
+    const linkToCopy = window.location.href;
+  
+    // Check if the Clipboard API is available
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        await navigator.clipboard.writeText(linkToCopy);
+        alert("Link copied to clipboard!");
+      } catch (error) {
+        console.error("Failed to copy the link:", error);
+      }
+    } else {
+      // Fallback for unsupported environments
+      const tempInput = document.createElement("input");
+      tempInput.value = linkToCopy;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand("copy");
+        alert("Link copied to clipboard!");
+      } catch (error) {
+        console.error("Fallback copy failed:", error);
+      }
+      document.body.removeChild(tempInput); // Clean up
+    }
+  };
+  renderShareOptions = () => (
+    <div className="share-options-modal">
+      <div className="">Share</div>
+      <div className="flex flex-row">
+     <div className="copy-link-container flex ">
+        <input
+          type="text"
+          value={window.location.href}
+          readOnly
+          className="link-input"
+        />
+        <button onClick={this.handleCopyLink} className="copy-button flex">
+          Copy
+        </button>
+      </div>
+      </div>
+
+     {/*  <div className="share-icons">
+        <a
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+            window.location.href
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Facebook
+        </a>
+        <a
+          href={`https://wa.me/?text=${encodeURIComponent(
+            window.location.href
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp
+        </a>
+        <a
+          href={`https://www.reddit.com/submit?url=${encodeURIComponent(
+            window.location.href
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Reddit
+        </a>
+      </div> */}
+      <button className="closeBtn" onClick={() => this.setState({ showShareOptions: false })}>
+        Close
+      </button>
+    </div>
+  );
 
   render() {
     const carouselItems = [
@@ -132,23 +231,23 @@ class Splash extends Component {
       },
       {
         image: video2,
-        link: "https://appopener.in/ig/32vlpkwoz",
+        link: "https://shop.creatorcosmos.com/products/backflow-smoke-radhakrishn-shiva-with-20-smoke-incense-cone-for-living-room-bed-room-office-and-home-d-cor-10-cm",
         alt: "Video Thumbnail",
         width: 300,
         height: 200,
         aspectRatio: "1280/720",
-        title: "AppOpener",
-        description: "Join AppOpener Today!",
+        title: "Cosmic Shop",
+        description: "AppOpener Radakrishna artifact and Shiva artifact Prem with 20 Smoke (KhushBoo) Incense Cone For Living Room, Bed room, Office and Home Decor",
       },
       {
         image: video3,
-        link: "https://appopener.in/ig/3s92ztb5f",
+        link: "https://appopener.com/ig/40eh193sp",
         alt: "Video Thumbnail",
         width: 300,
         height: 200,
         aspectRatio: "1280/720",
-        title: "Appopener",
-        description: "Let's learn about SEO in simple terms! 🚀",
+        title: "AlphaDrive",
+        description: "-- Unlock your consciousness --",
       },
       {
         image: video4,
@@ -162,7 +261,7 @@ class Splash extends Component {
       },
       // Add more items as needed
     ];
-    const imageData = [
+/*     const imageData = [
       {
         link: "https://shop.creatorcosmos.com/",
         imgSrc: CREATORS,
@@ -183,29 +282,35 @@ class Splash extends Component {
         imgSrc: loginskip,
         alt: "Login Skip"
       }
-    ];
+    ]; */
     return (
       <>
     <div className='main-container'>
-    <AdComponent />
+    <NewAdComponent />
+{/*     <AdComponent /> */}
       <div className='header'>
         <div className='user-details'>
         <Link to="/">
-    <Avatar alt="logo" src={logo} sx={{ width: 65, height: 65 }} />
+    <Avatar alt="logo" src={logo} sx={{ width: 58, height: 58 }} />
   </Link>
-          <p className='user-tag'><span className=' pb-1 font-[40px]'>APPØ</span><span></span></p>
+          <p className='user-tag'><span className=' pb-1 '>APPØ</span><span></span></p>
         </div>
-        <a href="https://appopener.in/ig/jeapwpumh" target="_blank" rel="noopener noreferrer">
-        <div className='subscribe-button bg-black'>
-          <button className="bg-black  text-white">
-            Contri
+       {/*  <button onClick={this.handleShare}  className="share-button   border border-white text-white bg-white hover:bg-white hover:text-black rounded">
+        <img className='share-img ' src={share} alt='Channel Logo' /> 
+      </button> */}
+
+        <div className='subscribe-button bg-black ml-2'>
+          <button onClick={this.handleShare} className="share-button bg-black   ml-2">
+            <img className="share-img" src={share} alt="" />
+            
           </button>
         </div>
-        </a>
+     
       </div>
+      {this.state.showShareOptions && this.renderShareOptions()}
     
 <div className="coming-soon-container mt-2">
-        <p className="sliding-text">&bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener" &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener" &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users </p>
+        <p className="sliding-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kick Cry-Baby Carry with BOOT to 1B+ Views &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KICK CRYBABY CARRY WITH BOOT TO ONE BILLION+ VIEWS &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BOOT CARRY to 1B+ VIEWS &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CONTRI to BOOT CARRY &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTRI-BOot TO !B+ VIEWS&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;Coming Soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;"Your path to digital success starts here, with AppOpener" &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;Trusted by 300M+ Users </p>
       </div>
 
       <div className='hero-section'>
@@ -216,8 +321,8 @@ class Splash extends Component {
              /* width="100%"
              height="auto" */
       
-      src="https://www.youtube.com/embed/D3ulWU96yTs?autoplay=1&loop=1&playlist=D3ulWU96yTs&mute=1"
-      title="Go Beyond Creativity with AppOpener | CreatorCosmos"
+      src="https://www.youtube.com/embed/m9s1NQG3TNY?autoplay=1&loop=1&mute=1"
+      title="Krishna Opens Arjuna’s Third Eye | A Mind-Blowing Journey"
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerPolicy="strict-origin-when-cross-origin"
@@ -234,14 +339,14 @@ class Splash extends Component {
 <div className='video-info flex'>
     <img className='channel-logo' src={creatoryt} alt='Channel Logo' />
     <div className='video-details'>
-      <h4 className='video-title'>Go Beyond Creativity with AppOpener</h4>
+      <h4 className='video-title'>Monetise and Analyse with AppOpener</h4>
       <p className='channel-name'>CreatorCosmos</p>
     </div>
   </div>
 
 
           </div>
-          <a id="abcd" target="_blank">
+          <a id="abcd" target="_self">
           
           </a>  
        
@@ -322,7 +427,7 @@ class Splash extends Component {
      
 
 <div  className="mt-4">
-        <BrandTray items={imageData}/>
+        
       </div> 
            
      
@@ -336,6 +441,8 @@ class Splash extends Component {
       <div className='expand-container'>
         <ExpandableFooter/>
       </div>
+      <Float/>
+      {this.state.showShareOptions && this.renderShareOptions()}
     </div>
   </>
 
