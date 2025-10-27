@@ -20,10 +20,12 @@ import Carousel from '../components/Carousel';
 
 import AdComponent from '../components/adsComponent';
 import logo from "../assets/logo.avif";
-/* import slogo from "../assets/slogo.avif";
-import loginskip from "../assets/loginskip.png"; */
-/* import instagram from "../assets/instagram.png";
-import twitter from "../assets/twitter.png"; */
+/* 
+import slogo from "../assets/slogo.avif";
+import loginskip from "../assets/loginskip.png";
+import instagram from "../assets/instagram.png";
+import twitter from "../assets/twitter.png"; 
+*/
 import appopeneryt from "../assets/appopeneryt.avif";
 import { Link } from 'react-router-dom';
 import { FaYoutube } from 'react-icons/fa';
@@ -241,7 +243,7 @@ class Splash extends Component {
       },
       {
         image: video3,
-        link: "https://appopener.com/ig/40eh193sp",
+        link: "https://appopener.in/ig/40eh193sp",
         alt: "Video Thumbnail",
         width: 300,
         height: 200,
