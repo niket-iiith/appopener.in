@@ -1,24 +1,29 @@
 import React from "react";
 import classes from "./Styles.module.css";
-import {generateOpenShortLink,generateUserLink,checkIfUserExist,} from "../helper/api";
-import {Row,Col,Nav,Navbar,NavDropdown,Container,Form,FormControl,Button,} from "react-bootstrap";
-import Header from "./Header";
+import {
+  generateOpenShortLink,
+  generateUserLink,
+  checkIfUserExist,
+} from "../helper/api";
+import { Nav, Navbar, Container, Form } from "react-bootstrap";
+/* import Header from "./Header";
 import Login from "../components/login";
-import Logout from "../components/logout";
+import Logout from "../components/logout"; */
+import { Redirect } from "react-router-dom";
 import { Component } from "react";
-import {FaAndroid, FaCircleNotch,FaClosedCaptioning,FaCopy,FaGlobe,FaGooglePay,FaGooglePlay,FaLinkedin,FaSleigh,FaSpinner,FaSpotify,FaTelegram,FaTimesCircle,FaTwitter,FaYoutube,} from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLink } from "react-icons/fa";
-import { get_Tag, validURL } from "../helper/helperfn";
+import { FaPaste, FaCircleNotch, FaTimesCircle } from "react-icons/fa";
+import { get_Tag } from "../helper/helperfn";
 import Modal from "react-awesome-modal";
-import ShareButton from "react-web-share-button";
-import ShareButtons from "../components/share";
-import {loadCaptchaEnginge,LoadCanvasTemplate,LoadCanvasTemplateNoReload,validateCaptcha,} from "react-simple-captcha";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  validateCaptcha,
+} from "react-simple-captcha";
 import "../css/profile.css";
-import InApp from "detect-inapp";
 import logo from "../assets/logo.avif";
-import helmet from "../assets/helmet.avif";
+import skip from "../assets/skip.webp";
+import LinkModal from "./LinkModal";
+import SpaceBackground from "./spaceComponent";
 
 class HeroSection extends Component {
   constructor(props) {
@@ -40,17 +45,55 @@ class HeroSection extends Component {
       displayemail: "",
       displayImage: "",
       displayname: "",
+      screenWidth: window.innerWidth,
+      selectedDomain: ".com",
+      editWindow: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getLoginDetails = this.getLoginDetails.bind(this);
+    this.updateScreenWidth = this.updateScreenWidth.bind(this);
+    this.handlePaste = this.handlePaste.bind(this);
+    this.closeEditWindow = this.closeEditWindow.bind(this);
+    this.getShortIdFromLink = this.getShortIdFromLink.bind(this);
   }
+
+  closeEditWindow = () => {
+    this.setState({ editWindow: false });
+  };
+
+  getShortIdFromLink = (generatedLink) => {
+    if (!generatedLink) return "";
+    const urlParts = generatedLink.split("/");
+    return urlParts[urlParts.length - 1]; // Get the last part (shortId)
+  };
+
   componentDidMount() {
     // this.getLoginDetails()
+    window.addEventListener("resize", this.updateScreenWidth);
+    // this.detectTimeZone();
   }
-   
+
+  handleDomainChange = (e) => {
+    this.setState({ selectedDomain: e.target.value });
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateScreenWidth);
+  }
+
+  updateScreenWidth() {
+    this.setState({ screenWidth: window.innerWidth });
+  }
+
   getLoginDetails(val) {
+    /* console.log("Login Details Received:", {
+      googleId: val.googleId,
+      email: val.profileObj.email,
+      name: val.profileObj.name,
+      tokenId: val.tokenObj.id_token
+    }); */
     // alert("hi");
     // do not forget to bind getData in constructor
     //console.log("hello - ",val);
@@ -64,7 +107,25 @@ class HeroSection extends Component {
         displayImage: val.profileObj.imageUrl,
         displayname: val.profileObj.name,
         GoogleAuthToken: val.tokenObj.id_token,
+        toDash: "no",
       });
+
+      checkIfUserExist(
+        this.state.displayname,
+        this.state.displayemail,
+        this.state.googleuserID,
+        this.state.GoogleAuthToken
+      );
+      /* console.log("Sending to checkIfUserExist:", {
+        displayname: this.state.displayname,
+        displayemail: this.state.displayemail,
+        googleuserID: this.state.googleuserID,
+        GoogleAuthToken: this.state.GoogleAuthToken
+      }); */
+
+      if (localStorage.getItem("loaded") === "ignoreOnce") {
+        localStorage.removeItem("loaded");
+      }
     }
   }
 
@@ -75,7 +136,14 @@ class HeroSection extends Component {
     appnames = get_Tag(event.target.value);
     this.setState({ appname: appnames });
   }
+
   handleSubmit(event) {
+    /* console.log("Handle Submit Data:", {
+      url: this.state.value,
+      appName: this.state.appname,
+      isLogin: this.state.isLogin,
+      selectedDomain: this.state.selectedDomain
+    }); */
     if (this.state.value == "") {
       this.setState({ errortext_url: "Please enter your link" });
     } else if (this.state.appname == "" || this.state.appname == " ") {
@@ -93,12 +161,16 @@ class HeroSection extends Component {
     //alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
+
   openModal() {
     this.setState({ visible: true, loadingicon: true });
 
     //check if same link is clicked again & again
-        let appopener_app_url = "https://appopener.in/"; // process.env.REACT_APP_opnr_app_url;  
-        console.log(appopener_app_url);
+
+    let appopener_app_url =
+      "https://appopener" + this.state.selectedDomain + "/";
+
+    /*  console.log(appopener_app_url); */
     if (this.state.value === this.state.old_original_url) {
       this.setState({
         loadingicon: false,
@@ -112,7 +184,8 @@ class HeroSection extends Component {
         checkIfUserExist(
           this.state.displayname,
           this.state.displayemail,
-          this.state.googleuserID
+          this.state.googleuserID,
+          this.state.GoogleAuthToken
         );
 
         generateUserLink(
@@ -120,9 +193,16 @@ class HeroSection extends Component {
           this.state.value,
           this.state.GoogleAuthToken
         ).then((res) => {
+          /* console.log("generateUserLink Request Data:", {
+            appName: this.state.appname,
+            originalUrl: this.state.value,
+            authToken: this.state.GoogleAuthToken
+          }); */
           //console.log("status");
+          console.log("generateUserLink Response:", res);
+
           //console.log(res.status);
-          if(res.status == 401){
+          if (res.status == 401) {
             alert("Invalid Token Please try again");
             window.location.reload();
             return;
@@ -130,24 +210,43 @@ class HeroSection extends Component {
           let tag = res.data.tag.toLowerCase();
           //console.log(tag);
           let original_url = res.data.originalURL;
-
           if (tag === "youtube") {
+            // const videoIdIdx = original_url.search("v=")
+            // const containsAnd=original_url.search("&t");
+            // let videoId="";
+            //   if(containsAnd!==-1){
+            //     videoId=original_url.substring(videoIdIdx+2,containsAnd);
+            //   }else{
+            //     videoId=original_url.substring(videoIdIdx+2)
+            //   }
+
+            //   if(localStorage.getItem('videoId')===null){
+            //     localStorage.setItem('videoId',videoId)
+            //   }else{
+            //     localStorage.removeItem('videoId')
+            //     localStorage.setItem('videoId',videoId)
+            // }
             tag = "yt";
           } else if (tag === "instagram") {
             tag = "ig";
-          }else if (tag === "spotify") {
+          } else if (tag === "spotify") {
             tag = "sp";
-          }else if (tag === "telegram") {
+          } else if (tag === "telegram") {
             tag = "tg";
-          }else if (tag === "twitter") {
+          } else if (tag === "twitter") {
             tag = "tw";
-          }else if (tag === "linkedin") {
+          } else if (tag === "linkedin") {
             tag = "lk";
-          }else if (tag === "playstore") {
+          } else if (tag === "playstore") {
             tag = "ps";
-          } else {
-            tag = "web";
+          } else if (tag === "docs") {
+            tag = "docs";
+          } else if (tag === "facebook") {
+            tag = "fb";
           }
+          // } else {
+          //   tag = "web";
+          // }
           let generated_url = appopener_app_url + tag + "/" + res.data.shortid;
           this.setState({
             loadingicon: false,
@@ -159,41 +258,95 @@ class HeroSection extends Component {
         this.setState({ generatedlink: "" });
         generateOpenShortLink(this.state.appname, this.state.value).then(
           (res) => {
-            //console.log(res);
+            console.log("generateOpenShortLink Request Data:", {
+              appName: this.state.appname,
+              originalUrl: this.state.value,
+            });
+            // console.log("result is : ", res.data);
+            let original_url = res.data.originalURL;
             let tag = res.data.tag.toLowerCase();
+            console.log("generateOpenShortLink Response:", res);
             if (tag === "youtube") {
+              // const videoIdIdx = original_url.search("v=")
+              // const containsAnd=original_url.search("&t");
+              // // console.log("containsAnd: ",containsAnd);
+              // let videoId="";
+              // if(containsAnd!==-1){
+              //   videoId=original_url.substring(videoIdIdx+2,containsAnd);
+              // }else{
+              //   videoId=original_url.substring(videoIdIdx+2)
+              // }
+
+              // if(localStorage.getItem('videoId')===null){
+              //   localStorage.setItem('videoId',videoId)
+              // }else{
+              //   localStorage.removeItem('videoId')
+              //   localStorage.setItem('videoId',videoId)
+              // }
+              // console.log("videoId", videoId);
+              // console.log("props of the video section are : ", this.props);
               tag = "yt";
             } else if (tag === "instagram") {
               tag = "ig";
-            }else if (tag === "spotify") {
+            } else if (tag === "spotify") {
               tag = "sp";
-            }else if (tag === "telegram") {
+            } else if (tag === "telegram") {
               tag = "tg";
-            }else if (tag === "twitter") {
+            } else if (tag === "twitter") {
               tag = "tw";
-            }else if (tag === "linkedin") {
+            } else if (tag === "linkedin") {
               tag = "lk";
-            }else if (tag === "playstore") {
+            } else if (tag === "playstore") {
               tag = "ps";
-            } else {
-              tag = "web";
+            } else if (tag === "docs") {
+              tag = "docs";
+            } else if (tag === "facebook") {
+              tag = "fb";
             }
-            let original_url = res.data.originalURL;
-            let generated_url = appopener_app_url + tag + "/" + res.data.shortid;
+            // else {
+            //   tag = "web";
+            // }
+            let generated_url =
+              appopener_app_url + tag + "/" + res.data.shortid;
             //this.setState({intentvalue : res.data.app_intend});
             this.setState({
               loadingicon: false,
               old_original_url: original_url,
               generatedlink: generated_url,
             });
+            console.log(this.state);
           }
         );
       }
     }
   }
 
+  //   detectTimeZone = () => {
+  //     const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  //     if (
+  //         userTimeZone.includes('Asia/Kolkata') ||
+  //         userTimeZone.includes('Asia/Mumbai') ||
+  //         userTimeZone.includes('Asia/Calcutta')
+  //     ) {
+  //         this.setState({ selectedDomain: '.in' });
+  //     } else {
+  //         this.setState({ selectedDomain: '.com' });
+  //     }
+  // };
+
   async timeout(delay) {
-    return new Promise( res => setTimeout(res, delay) );
+    return new Promise((res) => setTimeout(res, delay));
+  }
+
+  async handlePaste(input) {
+    const text = await navigator.clipboard.readText();
+    console.log(text);
+    let appnames = "";
+    appnames = get_Tag(text);
+    this.setState({
+      value: text,
+      appname: appnames,
+    });
   }
 
   async openCaptchaModal() {
@@ -236,8 +389,8 @@ class HeroSection extends Component {
         });
         loadCaptchaEnginge(4, "black", "white");
         document.getElementById("user_captcha_input").value = "";
-
         this.openModal();
+        this.setState({ visible_captcha: false });
       } else {
         this.setState({
           errortext: "Captcha not matched, Plz try again",
@@ -248,447 +401,428 @@ class HeroSection extends Component {
   };
 
   render() {
-    const useragent = navigator.userAgent || navigator.vendor || window.opera;
-    const inapp = new InApp(useragent);
-
-    const handleCLick = (event) => {
-      this.setState({ value: "" });
-    };
-
+    if (this.state.toDash === "yes") {
+      if (localStorage.getItem("loaded") !== "ignoreOnce") {
+        return <Redirect to="/dashboard" />;
+      }
+    }
     let modal_captcha = <div></div>;
 
-    if(this.state.visible_captcha) {
-      modal_captcha = <Modal style={{position:"absolute"}}
-      visible={this.state.visible_captcha}
-      width="500"
-      height="300"
-      effect="fadeInDown"
-      position="absolute"
-      onClickAway={() => this.closeCaptchaModal()}
-    >
-      <div className="modal-content" style={{ border: "0" }}>
-        <div className="modal-header text-center">
-          <h5 className="modal-title">Captcha verification</h5>
-          <a
-            href="javascript:void(0);"
-            onClick={() => this.closeCaptchaModal()}
+    if (this.state.visible_captcha) {
+      modal_captcha = (
+        <Modal
+          style={{ position: "absolute" }}
+          visible={this.state.visible_captcha}
+          width="500"
+          height="280"
+          effect="fadeInDown"
+          position="absolute"
+          onClickAway={() => this.closeCaptchaModal()}
+        >
+          <div
+            className="modal-content text-white relative"
+            style={{
+              border: "0"
+            }}
           >
-            <FaTimesCircle size="25px" />
-          </a>
-        </div>
-        <div className="modal-body">
-          <center>
-            <div>
-              {" "}
-              <LoadCanvasTemplate
-                reloadText="Reload Captcha"
-                reloadColor="green"
-              />
-              <input
-                placeholder="Enter Captcha Value"
-                id="user_captcha_input"
-                className="form-control"
-                name="user_captcha_input"
-                type="text"
-              ></input>
-              <p className="text-danger">
-                {this.state.errortext}
-              </p>
-              <button
-                className="btn btn-primary"
-                type="button"
-                onClick={this.verifyCaptcha}
+            <SpaceBackground />
+            <div className="modal-header text-center relative z-10 p-6">
+              <h5 className="modal-title">Verification for added Security</h5>
+              <a
+                className="color-white"
+                href="javascript:void(0);"
+                onClick={() => this.closeCaptchaModal()}
               >
-                Verify
-                {this.state.loadingicon ? (
-                  <FaCircleNotch
-                    className={classes.spinner}
-                  />
-                ) : (
-                  ""
-                )}
-              </button>
+                <FaTimesCircle size="25px" />
+              </a>
             </div>
-            <br></br>
-            <i>To avoid Captcha Please Login..</i>
-          </center>
-        </div>
-      </div>
-    </Modal>
+            <div className="modal-body">
+              <center>
+                <div>
+                  {" "}
+                  <LoadCanvasTemplate
+                    reloadText="Reload Captcha"
+                    reloadColor="white"
+                  />
+                  <input
+                    placeholder="Enter Captcha Value"
+                    id="user_captcha_input"
+                    className="form-control"
+                    name="user_captcha_input"
+                    type="text"
+                  ></input>
+                  <p className="text-danger">{this.state.errortext}</p>
+                  <button
+                    className="btn btn-primary font-semibold"
+                    type="button"
+                    onClick={this.verifyCaptcha}
+                  >
+                    Verify
+                    {this.state.loadingicon ? (
+                      <FaCircleNotch className={classes.spinner} />
+                    ) : (
+                      ""
+                    )}
+                  </button>
+                </div>
+                <br></br>
+                <i className="font-semibold">To avoid Captcha Please Login..</i>
+              </center>
+            </div>
+          </div>
+        </Modal>
+      );
     } else {
       modal_captcha = <div></div>;
     }
     let modal_generatelink = <div></div>;
-    if(this.state.visible) {
-              modal_generatelink = <Modal style={{position:"absolute"}}
-              visible={this.state.visible}
-              width="90%"
-              height="50%"
-              effect="fadeInDown"
-              position="absolute"
-              onClickAway={() => this.closeModal()}
-            >
-              <div className="modal-content" style={{ border: "0" }}>
-                <div className="modal-header text-center">
-                  <h5 className="modal-title">Smarten your Links</h5>
-                  <a
-                    href="javascript:void(0);"
-                    onClick={() => this.closeModal()}
+    if (this.state.visible) {
+      modal_generatelink = (
+        <LinkModal
+          isOpen={this.state.visible}
+          onClose={() => this.closeModal()}
+          link={this.state.generatedlink}
+          originalUrl={this.state.old_original_url}
+          onClickAway={() => this.closeModal()}
+        />
+        //         <Modal
+        //           style={{
+        //             position: "absolute",
+        //             display: "flex",
+        //             justifyContent: "center",
+        //             alignItems: "center",
+        //           }}
+        //           visible={this.state.visible}
+        //           width="auto"
+        //           maxwidth="90%"
+        //           height="auto"
+        //           maxHeight="80%"
+        //           effect="fadeInDown"
+        //           position="absolute"
+        //           onClickAway={() => this.closeModal()}
+        //         >
+        //           <div
+        //             className="modal-content"
+        //             style={{
+        //               border: "0",
+        //               borderRadius: "10px",
+        //               boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
+        //               overflow: "hidden",
+        //             }}
+        //           >
+        //             {/* Header */}
+        //             <div className="modal-header d-flex justify-content-between align-items-center px-4 py-3">
+        //               <h5 className="modal-title mb-0 flex items-center justify-center">Step 3. Share your Super Story</h5>
+        //               <a href="javascript:void(0);" onClick={() => this.closeModal()}>
+        //                 <FaTimesCircle size="22px" color="#000000" />
+        //               </a>
+        //             </div>
+
+        //             {/* Main Scrollable Body */}
+        //             <div
+        //               className="modal-body"
+        //               style={{
+        //                 padding: "1px",
+        //                 maxHeight: "65vh",
+        //                 overflowY: "auto",
+        //                 backgroundColor: "#f9f9fb",
+        //               }}
+        //             >
+
+        //             <EditLinkForm
+        //               originalURL={this.state.old_original_url}
+        //               shortId={this.getShortIdFromLink(this.state.generatedlink)}
+        //               onCancel={() => this.closeEditWindow()}
+        //               disabled={!this.state.editWindow}
+        //             />
+        //               {/* <InstaStory
+        //                 download={false}
+        //                 videoId="nQOescIkJns"
+        //                 headline="Check out our latest video!"
+        //                 /> */}
+        //               {/* Link Preview Section */}
+        //               <div className="mt-4">
+        //                 <div className="input-group shadow-sm">
+        //                   <span className="input-group-text bg-secondary text-white">
+        //                     <FaLink />
+        //                   </span>
+        //                   <input
+        //                     type="text"
+        //                     className="form-control"
+        //                     value={this.state.generatedlink}
+        //                     disabled={true}
+        //                   />
+        //                 </div>
+
+        //                 {/* Button actions */}
+        //                 <div className="d-flex flex-wrap gap-2 mt-3">
+        //                   {this.state.loadingicon ? (
+        //                     <button className="btn btn-primary px-4 py-2" disabled>
+        //                       <FaCircleNotch className={classes.spinner} /> Please wait
+        //                     </button>
+        //                   ) : (
+        //                     <div className="flex flex-col gap-2 w-full">
+        //                       <div className="flex gap-4 justify-between items-center">
+        //                       <CopyToClipboard
+        //                         text={this.state.generatedlink}
+        //                         onCopy={() => this.setState({ copied: true })}
+        //                       >
+        //                         <button className="btn btn-primary px-2 py-2">
+        //                           <FaCopy size="20px" /> Copy Link
+        //                         </button>
+        //                       </CopyToClipboard>
+        // {/*                       <button
+        //                         className="btn btn-secondary px-2 py-2"
+        //                         onClick={() => this.setState({ editWindow: true })}
+        //                       >
+        //                         <FaEdit size="20px" /> Edit Link
+        //                       </button> */}
+        //                       <a href={`/visualShop/${this.state.VideoId}`}>
+        //                       <button
+        //                         className="btn btn-secondary px-2 py-2"
+        //                       >
+        //                         <FaShoppingBag size="20px" /> Super Story
+        //                       </button>
+        //                       </a>
+        //                       </div>
+
+        //                     </div>
+        //                   )}
+        //                 </div>
+
+        //                 {this.state.copied && (
+        //                   <p className="text-success mt-2">Link copied to clipboard!</p>
+        //                 )}
+        //               </div>
+        //             </div>
+
+        //             {/* Footer */}
+        //             <div className="modal-footer px-4 py-3 bg-white text-black">
+        //               <p
+        //                 className="text-muted text-white mb-2"
+        //                 style={{ fontSize: "0.9rem" }}
+        //               >
+        //               </p>
+        //               {inapp.isMobile ? (
+        //                 <ShareButton
+        //                   className="mt-2"
+        //                   title="AppOpener Smartlink"
+        //                   url={this.state.generatedlink}
+        //                 />
+        //               ) : (
+        //                 <div className="d-flex justify-content-center mt-3 w-100">
+        //                   <ShareButtons
+        //                     title="AppOpener Smartlink"
+        //                     url={this.state.generatedlink}
+        //                     tags="#appopener"
+        //                   />
+        //                 </div>
+        //               )}
+        //             </div>
+        //           </div>
+        //         </Modal>
+      );
+    } else {
+      modal_generatelink = <div></div>;
+    }
+
+    return (
+      <div className="relative min-h-screen bg-transparent overflow-visible z-10">
+        {/* <StarAnimation count={50} /> */}
+
+        <div className="header mb-0">
+          <Navbar
+            expand="lg"
+            className={this.state.click ? classes.active : "navbar-dark"}
+          >
+            <Container>
+              <div className="d-flex items-center justify-center w-full">
+                <a
+                  className="flex flex-row no-underline items-center ml-0"
+                  href="/"
+                  style={{
+                    fontFamily: "Montserrat Alternates",
+                    fontWeight: 600,
+                    marginTop: "23px",
+                    fontSize: "32px",
+                    color: "white",
+                  }}
+                >
+                  <img 
+                    className="w-14 h-18" 
+                    src={logo} 
+                    alt="Logo" 
+                  />
+                  APPOPENER
+                </a>
+              </div>
+              {/* <div className="d-flex justify-content-start ml-[-45px]">
+                      {this.state.isLogin ? (
+                        <Nav.Link
+                          href="/dashboard"
+                          style={{
+                            color: "white",
+                            "font-family": "Montserrat Alternates",
+                            "font-weight": "800",
+                            "font-size": "16px",
+                          }}
+                        >
+                          Dashboard
+                        </Nav.Link>
+                      ) : (
+                        ""
+                      )}
+                    </div> */}
+              {/* <div className="flex items-center z-11">
+                {this.state.screenWidth <= 655 ? (
+                  <>
+                    <SmallHam />
+                  </>
+                ) : (
+                  <>
+                    <HamburgerMenu />
+                  </>
+                )}
+              </div> */}
+
+              <div className="d-flex justify-content-end">
+                <Nav>
+                  <Form
+                    className={classes.logingoogle}
+                    style={{ width: "100%" }}
                   >
-                    <FaTimesCircle size="25px" />
-                  </a>
-                </div>
-                <div className="modal-body">
-                  <div className="input-group mt-3">
-                    <button
-                      className="btn btn-secondary"
-                      disabled={true}
-                      type="button"
-                      style={{ padding: "10px" }}
-                      onClick={handleCLick}
-                    >
-                      <FaLink size="20px" />
-                    </button>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ padding: "10px" }}
-                      value={this.state.generatedlink}
-                      disabled={true}
-                    />
-                    <div className="input-group-append">
-                      {this.state.loadingicon ? (
+                    <div className={classes.btnSignGrp}>
+                      {/*   <div className="flex items-center ">
+                          
+                              {this.state.screenWidth <= 655 ? (
+                                <>
+                                <Small_ham /> 
+                                   
+                                </>
+                              ) : (
+                                <>
+                                   <HamburgerMenu /> 
+                                </>
+                              )}
+                            </div> */}
+
+                      {this.state.isLogin ? (
                         <>
-                          {" "}
-                          <button
-                            className="btn btn-primary"
-                            type="button"
-                            style={{ padding: "11px" }}
-                          >
-                            <FaCircleNotch
-                              className={classes.spinner}
-                            />{" "}
-                            Please wait
-                          </button>
+                          {/*   <div
+                                  className="container d-flex flex-row"
+                                  style={{
+                                    position: "relative",
+                                    left: "-30px",
+                                  }}
+                                >
+                                  <div className="top-container mr-[20px] ">
+                                    <img
+                                      className="img-responsive img-fluid profile-image w-12 xss:w-13 xs:w-13 sm:w-15 md:w-17 ml:w-18 lg:w-20 "
+                                      src={this.state.displayImage}
+                                      width="70"
+                                      alt=""
+                                    />
+                                    <div className="">
+                                      <p className="name d-none d-lg-block">
+                                        {this.state.displayemail}
+                                      </p>
+                                      <div className="mail">
+                                        <Logout />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> */}
                         </>
                       ) : (
                         <>
-                          <CopyToClipboard
-                            text={this.state.generatedlink}
-                            onCopy={() =>
-                              this.setState({ copied: true })
-                            }
-                          >
-                            <button
-                              className="btn btn-primary"
-                              type="button"
-                              style={{ padding: "11px" }}
-                            >
-                              <FaCopy size="25px" /> Copy Link
-                            </button>
-                          </CopyToClipboard>
+                          {/*  <center>
+                                  <Login sendData={this.getLoginDetails} />
+                                </center> */}
                         </>
                       )}
+                      {/*  <center className="flex items-center">
+                              {this.state.screenWidth <= 655 ? (
+                                <>
+                                   <Small_ham /> 
+                                </>
+                              ) : (
+                                <>
+                                   <HamburgerMenu /> 
+                                </>
+                              )}
+                            </center> */}
+                      {/* <div */}
+                      {/* className="flex justify-center items-center w-full px-4 py-2 border border-gray-700 rounded-md shadow-sm bg-[#121622] text-gray-300 hover:text-white hover:bg-[#1e2230] cursor-pointer font-extrabold data-[state=active]:text-blue-500 data-[state=active]:fill-blue-500" */}
+                      {/* style={{ */}
+                      {/* position: "relative", */}
+                      {/* /* right: "80%", */}
+                      {/* }} */}
+                      {/* onClick={() => */}
+                      {/* window.open("https://www.loginskip.com/", "_blank") */}
+                      {/* } */}
+                      {/* > */}
+                      {/* Skip Login&nbsp;&nbsp; */}
+                      {/* <FaFastBackward/> */}
+                      {/* <img style={{ width: "12px" }} src={skip} alt="Logo" /> */}
+                      {/* </div> */}
                     </div>
-                  </div>
-                  {this.state.copied ? (
-                    <p style={{ color: "red", padding: "5px" }}>
-                      link copied
-                    </p>
-                  ) : (
-                    ""
-                  )}
-
-                  <hr />
-                </div>
-                <div
-                  className="modal-footer"
-                  style={{ display: "block", "borderTop": "0" }}
-                >
-                  {inapp.isMobile ? (
-                    <ShareButton className="" title="AppOpener Smartlink" url={this.state.generatedlink}/>
-                  ) : (
-                    <>
-                      <center>
-                        <ShareButtons
-                          title="AppOpener Smartlink"
-                          url={this.state.generatedlink}
-                          tags="#appopener"
-                        />
-                      </center>
-                    </>
-                  )}
-                </div>
+                  </Form>
+                </Nav>
               </div>
-            </Modal>
-          } else {
-            modal_generatelink = <div></div>
-          }
-    return (
-      <>
-        <div className={classes.heroBanner}>
-          <div className={classes.overflowHidden}>
-            <div className={classes.topHeader}>
-              <div className="header">
-                <Navbar
-                  
-                  expand="lg"
-                  className={this.state.click ? classes.active : "navbar-dark"}
-                >
-                  <Container>
-                    <div className="d-flex justify-content-start">
-                    <Navbar.Brand href="#home" className="navbar-logo">
-                      <img
-                        className={classes.logo}
-                        src={logo}
-                        alt="Logo"
-                      />
-                     
-                    </Navbar.Brand>
-                   
-                    <a
-                      className="navbar-brand d-none d-lg-block"
-                      href="#"
-                      style={{
-                        fontFamily: "Montserrat Alternates",
-                        fontWeight: 600,
-                        marginTop: "23px",
-                        fontSize: "23px",
-                        color: "white"
-                      }}
-                    >
-                      APPOPENER
-                    </a>
-                 
-                   
-                   
-                    </div>
-                    <div className="d-flex justify-content-start">
-                    {this.state.isLogin ? <Nav.Link href="/dashboard" style={{color:"white","font-family": "Montserrat Alternates",
-                        "font-weight": "800","font-size": "16px"}}>
-                  Dashboard
-                </Nav.Link> : ""}
-                    </div>
-                    
-                  
-                    <div className="d-flex justify-content-end">
-                     <Nav>
-                        <Form style={{ width: "100%" }}>
-                          
-                           
-                           
-                              <div className={classes.btnSignGrp}>
-                                {this.state.isLogin ? (
-                                  <>
-                                    <div className="container d-flex flex-row">
-                                      <div className="top-container">
-                                        <img className="img-responsive img-fluid profile-image"
-                                          src={this.state.displayImage}
-                                          width="70"
-                                        />
-                                        <div className="">
-                                          <p className="name d-none d-lg-block">
-                                            {this.state.displayemail}
-                                          </p>
-                                          <div className="mail">
-                                            <Logout />
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </>
-                                ) : (
-                                  <center><Login sendData={this.getLoginDetails} /></center>
-                                )}
-                              </div>
-                           
-                         
-                        </Form>
-                      </Nav>
-                      </div>
-                   
-                  </Container>
-                </Navbar>
-              </div>
-            </div>
-            <div>
-            {/* < img src={require("../assets/vector-1.avif").default}
-                      style={{
-                        zIndex:'-1'
-                      }}                    
-                    /> */}
-              <div className={classes.stars}></div>
-              <div className={classes.stars2}></div>
-              <div className={classes.stars3}></div>
-            </div>
-
-            <div className={classes.innerContent}>
-              <Container>
-                <Row>
-                  <Col xs={12} md={12} lg={6}>
-                    <h1 className={classes.title}>Smart Link</h1>
-                    <p className={classes.subTitle} style={{fontFamily:'Montserrat Alternates'}} >
-                      Create SmartLinks to open desired apps from url without login
-                    </p>
-                    <Form className={classes.signupForm} style={{marginBottom:"0px"}}>
-                      <div className="input-group mt-3" style={{marginBottom:"0px"}}>
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="paste your link here"
-                          style={{ padding: "10px" }}
-                          value={this.state.value}
-                          onChange={this.handleChange}
-                        />
-
-                        <div className="input-group-append">
-                          <button
-                            className="btn btn-primary"
-                            type="button"
-                            style={{ padding: "11px" }}
-                            onClick={handleCLick}
-                          >
-                            {this.state.appname === "Youtube" ? (
-                              <FaYoutube size="25px" />
-                            ) : this.state.appname === "Instagram" ? (
-                              <FaInstagram size="25px" />
-                            ) : this.state.appname === "Spotify" ? (
-                              <FaSpotify size="25px" />
-                            ) : this.state.appname === "Telegram" ? (
-                              <FaTelegram size="25px" />
-                            ) : this.state.appname === "Twitter" ? (
-                              <FaTwitter size="25px" />
-                            ) : this.state.appname === "Linkedin" ? (
-                              <FaLinkedin size="25px" />
-                            ) : this.state.appname === "Playstore" ? (
-                              <FaGooglePlay size="25px" />
-                            ) : 
-                            (
-                              <FaLink size="25px" />
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                      <div className="mt-3" style={{ marginLeft: "10px" }}>
-                        <Button
-                          className={classes.btnSignUp}
-                          variant="primary"
-                          type="submit"
-                          onClick={this.handleSubmit}
-                        >
-                          Smarten Link
-                        </Button>
-                      </div>
-                    </Form>
-
-                    <div>
-                    <p style={{ color: "red", paddingLeft: "10px" }}>
-                      {this.state.errortext_url}
-                    </p>
-                    <p style={{color:'white',fontFamily:'Montserrat Alternates',fontSize:'15.38px'}}>Login to view analytics</p>
-                    </div>
-
-                    <div className="flex flex-row mt-2" style={{"marginTop":"-20px"}}>
-                     
-                    <br />
-   
-                    <FaYoutube size="30px" style={{color:"#F20200","marginRight":"15px"}}/>
-                    <FaInstagram size="30px" style={{color:"#C42D8F","marginRight":"15px"}}/>
-                    <FaSpotify size="30px" style={{color:"#1BCC5A","marginRight":"15px"}}/>
-                    <FaTwitter size="30px" style={{color:"#1B99E5","marginRight":"15px"}}/>
-                    <FaTelegram size="30px" style={{color:"#2394CC","marginRight":"15px"}}/>
-                    <FaLinkedin size="30px" style={{color:"#0C61B8","marginRight":"15px"}}/>
-                    <FaGooglePlay size="30px" style={{color:"white","marginRight":"15px"}}/>
-                    <FaGlobe size="30px" style={{color:"#5BCEF2","marginRight":"15px"}}/>
-                    <span style={{color:"white"}}>& more to come...</span>
-     
-                      {/* -----Modal for Captcha---------- */}
-                      {modal_captcha}
-                      {/* -----Modal for Captcha---END------- */}
-                      {modal_generatelink}
-                      
-                    </div>
-                  </Col>
-                  <Col xs={12} md={12} lg={6} className="d-none d-lg-block">
-                  <img className={classes.helmetanimate}
-                      style={{
-                        width: "350px",
-                        right: "-24%",
-                        bottom: "-12%",
-                        position: "relative",
-                      }}
-                      src={helmet}
-                      alt="company Logo"
-                    />
-    
-     
-                  </Col>
-                </Row>
-              </Container>
-            </div>
-            <div className={classes.totalCount}>
-              <Container>
-                <div className={classes.separator}></div>
-                <Row className="mt-3">
-                  <Col xs={12} md={12} lg={7}>
-                    <Row className="justify-content-center">
-                      <Col xs={6} md={3} lg={3}>
-                        <h3 className={classes.h3}>
-                          200<span class="text-white-fade">+</span> thousand
-                        </h3>
-                        <p>Links</p>
-                      </Col>
-                      <Col xs={6} md={3} lg={3}>
-                        <h3 className={classes.h3}>
-                          100<span class="text-white-fade">+</span> thousand
-                        </h3>
-                        <p>Creators</p>
-                      </Col>
-                      <Col xs={6} md={3} lg={3} className={classes.xsNone}>
-                        <h3 className={classes.h3}>
-                          200<span class="text-white-fade">+</span> million
-                        </h3>
-                        <p>Clicks</p>
-                      </Col>
-                      <Col xs={6} md={3} lg={3} className={classes.xsNone}>
-                        <h3 className={classes.h3}>
-                          99.9<span class="text-white-fade">%</span>
-                        </h3>
-                        <p>Uptime</p>
-                      </Col>
-                    </Row>
-                  </Col>
-                  <Col xs={12} md={12} lg={5}></Col>
-                </Row>
-              </Container>
-            </div>
-            <div className={classes.displayFlex}>
-              <img
-                className={classes.bgImg}
-                src={require("../assets/bg.svg").default}
-                alt="bg transparent"
-              />
-            </div>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              preserveAspectRatio="none"
-              viewBox="0 0 1680 40"
-              class="position-absolute width-full z-1"
-            >
-              <path
-                d="M0 40h1680V30S1340 0 840 0 0 30 0 30z"
-                fill="#fff"
-              ></path>
-            </svg>
-          </div>
+            </Container>
+          </Navbar>
         </div>
-        <div></div>
-        {/* --------Calling Login component just to get state value google obj.profile----------- */}
-        {/* <div style={{border:'1px dotted black '}}/> */}
-        {/* <div style={{ display: "none" }}></div> */}
-      </>
+
+        <div className="relative flex items-center justify-center h-screen">
+          <div className="relative top-[-75px] w-[300px] sm:w-[360px] rounded-[2.5rem] bg-gradient-to-br from-[#0d0d1c] to-[#1b1b2d] p-6 text-white shadow-inner border-4 border-orange-900">
+            <div className="space-y-6">
+              <h5 className="font-bold flex items-center justify-center">
+                SECURE YOUR LINKS
+              </h5>
+              <div>
+                <p className="text-sm mb-1 text-gray-400">⚡ Step 1</p>
+                {/* <label className="block text-sm mb-1">
+                  Paste your URL here:
+                </label> */}
+                <div className="flex justify-between items-center">
+                  <input
+                    className="form-control"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                    placeholder="Paste your Link ->"
+                  />
+                  <button
+                    className="btn btn-secondary ml-1"
+                    type="button"
+                    onClick={() => this.handlePaste()}
+                  >
+                    <FaPaste size="24px" />
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-sm mb-1 text-gray-400">⚡ Step 2</p>
+                <div className="flex gap-2 mt-2">
+                  <button
+                    className="flex-1 py-2 rounded-md bg-violet-700 text-white shadow-md"
+                    onClick={this.handleSubmit}
+                  >
+                    ⚡ SECURE
+                  </button>
+                  {/* <button className="flex-1 py-2 rounded-md bg-yellow-700 text-white shadow-md">
+                    👑 Golden Link
+                    <br />
+                    $1
+                  </button> */}
+                </div>
+              </div>
+            </div>
+          </div>
+          {modal_captcha}
+          {modal_generatelink}
+        </div>
+      </div>
     );
   }
 }

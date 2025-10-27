@@ -11,7 +11,7 @@
 #head{
     text-align: center;
     margin: 0.3em;
-    color: #212529;
+    color: #ffffff;
     font-size: 3.5em;
 }
 
@@ -36,4 +36,8 @@
 .policySingleContainer h3{
     font-size: 1.5em;
     text-align: center;
+    color: white;
+}
+.lastcontainer h6, p{
+    color: white;
 }

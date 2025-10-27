@@ -1,38 +1,84 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-family: "Noto Serif", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-    font-family: "Nerko One", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-family: "Edu AU VIC WA NT Guides", cursive;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-    font-family: "Edu AU VIC WA NT Guides", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./fonts/rubik.woff2") format("woff2"),
+    url("./fonts/rubik.woff") format("woff");
+  font-weight: normal;
   font-style: normal;
 }
 
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.markdown-content * {
+  color: white !important;
 }
+
+.markdown-content a {
+  color: #3b82f6 !important; /* Tailwind's 'text-blue-500' */
+  text-decoration: underline; /* Ensures links are clearly visible */
+}
+
+.markdown-content a:hover {
+  color: #2563eb !important; /* Tailwind's 'text-blue-600' */
+}
+
+.firework {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, transparent);
+  box-shadow: 
+    0 0 10px #fff, 
+    0 0 20px #ff0, 
+    0 0 40px #ff8000;
+  opacity: 0.9;
+  animation: firework-explode 1.6s ease-out infinite;
+}
+
+/* Different firework positions */
+.firework-1 { top: 20%; left: 30%; animation-delay: 0s; }
+.firework-2 { top: 40%; left: 70%; animation-delay: 0.4s; }
+.firework-3 { top: 60%; left: 50%; animation-delay: 0.8s; }
+.firework-4 { top: 80%; left: 20%; animation-delay: 1.2s; }
+.firework-5 { top: 30%; left: 80%; animation-delay: 1.6s; }
+
+/* Main explosion animation */
+@keyframes firework-explode {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+    box-shadow:
+      0 0 10px #fff,
+      0 0 20px #ff0,
+      0 0 40px #ff8000;
+  }
+  25% {
+    transform: scale(2);
+    opacity: 1;
+    box-shadow:
+      20px -20px 10px #ff4444,
+      -20px -20px 10px #44ff44,
+      -20px 20px 10px #4488ff,
+      20px 20px 10px #ffff44;
+  }
+  50% {
+    transform: scale(2.5);
+    opacity: 0.9;
+    box-shadow:
+      30px -30px 10px #ff0,
+      -30px -30px 10px #0ff,
+      -30px 30px 10px #f0f,
+      30px 30px 10px #ff4500;
+  }
+  75% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+}
+

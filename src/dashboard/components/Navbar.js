@@ -53,7 +53,7 @@ export default (props) => {
       <Container fluid className="px-0">
         <div className="d-flex justify-content-between w-100">
           <div className="d-flex align-items-center ">
-            <a class="btn d-none d-lg-block" style={{backgroundColor:"#262C3F"}} onClick={clickMe}><FaBars style={{color:"#EAEDF1"}}/></a>
+            <a className="btn d-none d-lg-block" style={{backgroundColor:"#262C3F"}} onClick={clickMe}><FaBars style={{color:"#EAEDF1"}}/></a>
             {/* <marquee>Due to some technical issues earlier clicks are not getting updated, its foxed now sorry for inconvinience</marquee> */}
             <Form className="navbar2-search">
               {/* <Form.Group id="topbarSearch">

@@ -35,8 +35,13 @@ export const validURL = (str)=> {
       }
       else if (urlObject.hostname.includes("play.google.com") || urlObject.hostname.includes("play.google") ) {
         tag = "Playstore";
-      }
-       else {
+      }else if(urlObject.hostname.includes("facebook.com")||urlObject.hostname.includes("facebook")){
+        tag="Facebook"
+      } else if(urlObject.hostname.includes("docs.google")){
+        tag="Docs"
+      } else if (urlObject.hostname.includes("openyt")) {
+        tag = "";
+      } else {
         tag = "Other";
       }
       return tag;

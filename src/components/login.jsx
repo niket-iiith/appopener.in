@@ -29,16 +29,18 @@ class Login extends Component {
 
   render() {
     return (
-      <div style={{display:"block"}}>
+      <div style={{ marginRight: "90px",display: "block", overflow: "hidden" }}>
         <GoogleLogin
           clientId={clientID}
-          buttonText="Login with google"
+          buttonText="Login with Google"
           onSuccess={this.onSuccess}
           onFailure={this.onFailure}
           cookiePolicy={"single_host_origin"}
           isSignedIn={true}
+          redirectUri="http://localhost:3000/user"
         />
-      </div>
+      </div>  
+
     );
   }
 }

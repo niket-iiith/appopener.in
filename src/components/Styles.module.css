@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;900&display=swap");
 body {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 14px;
@@ -99,7 +99,7 @@ body {
   border: 0px solid #fff !important;
   color: #fff !important;
   opacity: 0.8 !important;
-  text-decoration: none !important;
+  /* text-decoration: none !important; */
 }
 /* Hero banner */
 .overflowHidden {
@@ -132,15 +132,17 @@ body {
   padding: 6rem 0;
 }
 .title {
-  font-family: "Montserrat Alternates", sans-serif;
-  font-weight: 900;
-  font-size: 58.6px !important;
+  /* font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 900; */
+  font-size: 65.6px !important;
   line-height: 76px;
   color: #fff;
   margin-bottom: 15px;
+  font-family: "Jersey 15", serif;
+  font-weight: 500;
+  
 }
 .subTitle {
-  
   font-weight: 300;
   font-size: 20px !important;
   line-height: 32px !important;
@@ -178,7 +180,7 @@ body {
   box-shadow: 0 0 0 0.25rem rgb(00 241 139 / 50%) !important;
 }
 .btnSignUp:hover {
-  box-shadow: 0 0 0 0.20rem rgb(00 241 139 / 50%) !important;
+  box-shadow: 0 0 0 0.2rem rgb(00 241 139 / 50%) !important;
   background-image: linear-gradient(-180deg, #2ea54f 0, #15af40 100%);
 }
 .divider {
@@ -275,7 +277,7 @@ body {
 }
 .btnNoOutline:hover {
   color: #043a8a !important;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 .imgEnterPrise {
   position: relative;
@@ -408,10 +410,9 @@ body {
   width: 60%;
   margin: 0 auto;
   text-align: center;
- 
 }
 
-.darkColor{
+.darkColor {
   color: #111;
 }
 
@@ -448,7 +449,6 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   grid-template-columns: 1fr;
 }
 .cards {
-  
   width: calc(100% * (1 / 3) - 2px);
   flex: 1 1 360px;
   border-radius: 16px;
@@ -467,7 +467,6 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 .cardIcon img {
   width: 75px;
-  
 }
 /* Developers Container */
 .intigratePassword .cardBox {
@@ -610,7 +609,6 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   display: block;
   flex-direction: row;
   margin-bottom: 5rem;
-  
 }
 .featuresContent {
   background-color: #111;
@@ -657,7 +655,6 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 .securityContainer {
   width: 100%;
   position: relative;
-  
 }
 .securityContainer .sectionHeader {
   width: 100%;
@@ -665,8 +662,8 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 .securityImg {
   position: absolute;
- margin-top: -110px;
- padding-left: 250px;
+  margin-top: -110px;
+  padding-left: 250px;
 }
 
 .securityGrid {
@@ -703,36 +700,35 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 .demoContainer {
   width: 100%;
   position: relative;
-  
 }
 .btn22 {
-  transition:all .08s linear;
-  position:relative;
-  outline:medium none;
-  border:0px;
-  margin-right:10px;
-  margin-top:15px;
+  transition: all 0.08s linear;
+  position: relative;
+  outline: medium none;
+  border: 0px;
+  margin-right: 10px;
+  margin-top: 15px;
 }
 .btn22:focus {
-  outline:medium none;
+  outline: medium none;
 }
 .btn22:active {
-  top:9px;
+  top: 9px;
 }
 .btn3d-warning {
-
-  box-shadow:0 0 0 1px #f0ad4e inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #eea236, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
-  background-color:#f0ad4e;
+  box-shadow: 0 0 0 1px #f0ad4e inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 8px 0 0 #eea236, 0 8px 0 1px rgba(0, 0, 0, 0.4),
+    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #f0ad4e;
 }
 
-
-.gradientText p{
+.gradientText p {
   font-size: 80px;
   font-weight: 900;
   line-height: 100px;
   position: relative;
   /* background: -webkit-linear-gradient(#6224aa, #99568e, #ca8176); */
-  background: linear-gradient(-45deg, #6224aa , #99568e , #ca8176);
+  background: linear-gradient(-45deg, #6224aa, #99568e, #ca8176);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -772,7 +768,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   -o-object-position: top;
   object-position: top;
 }
-.sliderContainer{
+.sliderContainer {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -781,7 +777,7 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   grid-template-columns: 1fr;
   margin: 5rem 20px;
 }
-.stakeHolderInfo{
+.stakeHolderInfo {
   /* width: calc(100% * (1 / 5));
   flex: 1 1 ; */
   width: 280px;
@@ -791,40 +787,39 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   padding: 4px 10px;
   background: #fff;
   box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
-  transition: box-shadow .4s ease;
+  transition: box-shadow 0.4s ease;
   border-radius: 56px;
 }
-.info{
-  flex:3 1;
- 
+.info {
+  flex: 3 1;
 }
-.info h4{
+.info h4 {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 600;
-  margin:5px 2px;
+  margin: 5px 2px;
 }
-.info p{
+.info p {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
   color: #77767a;
 }
-.profileImg{
-  flex:1 1;
+.profileImg {
+  flex: 1 1;
 }
-.profileImg img{
- width: 50px;
- height: 50px;
- border-radius: 100%;
+.profileImg img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
 }
-.twitterIcon svg{
+.twitterIcon svg {
   width: 1.5rem;
   height: 1.5rem;
 }
-.twitterIcon svg:hover{
-  fill:blue
+.twitterIcon svg:hover {
+  fill: blue;
 }
 .footer {
   width: 100%;
@@ -839,17 +834,197 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   text-align: center;
   margin: 0;
 }
+.diwali_page {
+  position: relative;
+  background-color: #f8b4ba;
+  width: 100vw;
+  min-height: 100vh;
+}
+.diwali_page p {
+  margin: 0;
+  padding: 0;
+}
+.diwali_page .redirect_box {
+  text-align: center;
+}
+.diwali_page .redirect_box p {
+  text-align: center;
+}
+.diwali_page .redirect_box a {
+  /* text-decoration: underline; */
+  color: #036aa4;
+}
+.diwali_page .redirect_box a:hover {
+  color: #036aa4;
+ /*  text-decoration: underline; */
+  font-weight: 600;
+}
+.card_form_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.card_main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.changeImageButton {
+  color: #ffffff;
+  background-color: #f14b56;
+  border-radius: 50%;
+  border: none;
+  padding: 0px 15px;
+  font-size: 30px;
+}
+.card_form {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  border-radius: 10px;
+  gap: 10px;
+  padding: 20px;
+  background-color: #f86b74;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.card_form h3 {
+  font-weight: 500;
+  color: #ffffff;
+}
+.card_form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.send_button button,
+.button_container button {
+  border-radius: 5px;
+  color: #ffffff;
+  /* background-color: #f14b56; */
+  background-color: red;
+  padding: 5px 20px;
+  border: none;
+  font-weight: 700;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+}
+.button_container button {
+  width: 150px;
+}
+.send_button button:hover,
+.button_container button:hover {
+  background-color: #ec333f;
+}
+.send_container .button_container {
+  margin-top: 10px;
+}
+.send_container .button_container button {
+  width: 100%;
+}
+.card_form input {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f67e86;
+  color: #ffffff;
+}
+.card_form input::placeholder {
+  color: #ffffff;
+}
+.button_container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.diwali_card {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.card_container {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  overflow: hidden;
+  border: 4px solid #4e0930;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.diwali_card img {
+  object-fit: cover;
+  width: 300px;
+  height: 600px;
+}
+.card_content {
+  top: 120px;
+  position: absolute;
+}
+.card_content p {
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-family: "Montserrat Alternates";
+}
+.diwali_card .nameOnCard {
+  color: #f86c10;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0 40px;
+  line-height: 24px;
+}
+.card_container .wishes {
+  font-size: 12px;
+}
+.card_container .happy {
+  color: #fb8c42;
+  font-size: 24px;
+  letter-spacing: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+}
+.card_container .diwali {
+  color: #f86c10;
+  font-size: 50px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  line-height: 50px;
+}
+.card_container .message {
+  font-size: 12px;
+  padding: 0 40px;
+  line-height: 14px;
+  margin-top: 10px;
+}
+.send_button {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 2s ease-in-out infinite, blink 0.6s ease-in-out infinite;
+}
+
 /*Media css */
 @media (min-width: 992px) and (max-width: 1199px) {
 }
 @media (min-width: 992px) {
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  
   .title {
     font-size: 56px !important;
     line-height: 60px !important;
@@ -873,7 +1048,6 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
     flex: 1 1 50px;
     padding: 5px;
   }
-  
 }
 @media (max-width: 992px) {
   .navbar-toggler-icon {
@@ -943,6 +1117,12 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
     font-size: 40px !important;
     line-height: 40px;
   }
+
+  .scrollbutton{
+    text-align: center;
+    margin-top: 30px;
+  }
+  
   .subTitle {
     font-size: 19px !important;
     line-height: 28px !important;
@@ -1035,10 +1215,91 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   .boardingCards {
     flex: 1 1 100%;
   }
-  .gradientText p{
+  .gradientText p {
     font-size: 42px;
-    font-weight:700;
+    font-weight: 700;
     line-height: 52px;
+  }
+  .card_form {
+    width: 350px;
+  }
+
+  .diwali_card {
+    padding: 0;
+    transition: transform 0.5s ease-in-out;
+  }
+  .send_container {
+    padding-top: 1px;
+  }
+  .send_container .card_container {
+    width: 100vw;
+    height: 100vh;
+  }
+  .card_container {
+    width: 250px;
+    /* min-width: 70vw; */
+    height: 500px;
+    /* min-height: 70vh; */
+  }
+  .send_container .diwali_card img {
+    width: 100%;
+    height: 100%;
+  }
+  .diwali_card img {
+    width: 100%;
+    /* min-width: 70vw; */
+    height: 100%;
+    /* min-height: 70vh; */
+  }
+  .card_content {
+    top: 90px;
+  }
+  .send_container .card_content {
+    top: 22vh;
+  }
+  .diwali_card .nameOnCard {
+    font-size: 20px;
+    padding: 0 50px;
+  }
+  .send_container .nameOnCard {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .card_container .wishes {
+    font-size: 10px;
+  }
+  .send_container .wishes {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .card_container .happy {
+    font-size: 16px;
+    letter-spacing: 5px;
+  }
+  .send_container .happy {
+    font-size: 30px;
+  }
+  .card_container .diwali {
+    font-size: 24px;
+    letter-spacing: 5px;
+    line-height: 30px;
+  }
+  .send_container .diwali {
+    font-size: 50px;
+    letter-spacing: 5px;
+  }
+  .card_container .message {
+    font-size: 10px;
+    padding: 0 45px;
+  }
+  .send_container .message {
+    font-size: 16px;
+    padding: 0 45px;
+    margin-top: 30px;
+    line-height: 16px;
+  }
+  .send_button {
+    position: fixed;
   }
 }
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 3) {
@@ -1073,25 +1334,25 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
   .signupForm {
     width: 100%;
   }
-  .footer p{
+  .footer p {
     font-size: 12px;
   }
 }
-.icons_blog_size{
+.icons_blog_size {
   width: 72px;
   height: 72px;
 }
 
-.google_btn{
+.google_btn {
   border: 2px solid rgb(63, 61, 61);
   padding: 10px 20px;
-    background: linear-gradient(45deg, #1a1919, #383636);
-    box-shadow: 0px 4px 30px rgb(77 67 68 / 57%);
-    color: #fff;
-    border-radius: 10px;
-    width: 240px;
-    text-align: center;
-    transition: all 0.2s;
+  background: linear-gradient(45deg, #1a1919, #383636);
+  box-shadow: 0px 4px 30px rgb(77 67 68 / 57%);
+  color: #fff;
+  border-radius: 10px;
+  width: 240px;
+  text-align: center;
+  transition: all 0.2s;
 }
 
 .spinner {
@@ -1103,31 +1364,282 @@ background: linear-gradient(90deg, rgba(4,45,107,1) 0%, rgba(4,45,107,1) 0%, rgb
 }
 
 @keyframes spin {
-from {
-  transform: rotate(0deg);
-}
-to {
-  transform: rotate(360deg);
-}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-
-.helmetanimate{
-  
-	transform: translatey(0px);
-	animation: float 4s ease-in-out infinite;
+.helmetanimate {
+  transform: translatey(0px);
+  animation: float 4s ease-in-out infinite;
 }
+
 @keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-20px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+/* .send_container .nameOnCard {
+  transform: translatey(0px);
+  animation: slopeUp 1.5s ease-in-out;
+}
+
+.send_container .happy {
+  transform: translatey(0px);
+  animation: slopeUp 3s ease-in-out;
+}
+.send_container .diwali {
+  transform: translatey(0px);
+  animation: slopeUp 5s ease-in-out;
+}
+
+@keyframes slopeUp {
+  0% {
+    transform: translatey(50px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+} */
+
+.send_container .nameOnCard {
+  transform: translateY(-50px);
+  animation: nameOnCardAnimation 0.7s ease-in-out forwards;
+}
+
+.send_container .happy {
+  transform: translateY(0px);
+  animation: happyAnimation 0.7s ease-in-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.send_container .diwali {
+  transform: translateY(0px);
+  animation: diwaliAnimation 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+@keyframes nameOnCardAnimation {
+  0% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes happyAnimation {
+  0% {
+    /* transform: translateY(50px); */
+    opacity: 0;
+  }
+  100% {
+    /* transform: translateY(0px); */
+    opacity: 1;
+  }
+}
+
+@keyframes diwaliAnimation {
+  0% {
+    /* transform: translateY(50px); */
+    opacity: 0;
+  }
+  100% {
+    /* transform: translateY(0px); */
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.smartLinkContainer {
+  gap: 10px;
+}
+
+@media screen and (min-width: 1025px) {
+  .smartLinkContainer {
+    gap: 0;
+  }
+}
+
+.smartLinkTab {
+  gap: 12px;
+}
+
+@media screen and (min-width: 1024px) {
+  .smartLinkTab{
+    gap: 30px;
+  }
 }
 
 
 
+.navMenu {
+  
+  padding: 12px 14px 12px 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .navMenu {
+    max-height: 80px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .navMenu{
+    padding: 30px 14px 30px 14px;
+  }
+}
+
+
+
+
+
+/* @media screen and (max-width: 768px) {
+  .mainContent {
+    min-height: 100vw;
+  }
+} */
+/* overflow-auto xl:overscroll-none */
+.userLinks {
+  overflow: auto;
+
+}
+
+
+.allLinks > div > a {
+  color: white;
+  text-decoration: none;
+}
+
+.allLinks > div > a:hover {
+    color: rgb(187, 187, 252);
+}
+
+
+@media (min-width: 1051px) and (max-width: 1493px) {
+  .logingoogle {
+    margin-right: 50px;
+  }
+  .hamburgericon {
+    margin-right: 10px;
+   
+  }
+  .optionscontainer {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background: white;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+
+  }
+  
+}
+@media (min-width: 992px) and (max-width: 1051px) {
+  .logingoogle {
+    margin-right: 90px;
+  }
+  .hamburgericon {
+    margin-right: 90px;
+   
+  }
+  .optionscontainer {
+    position: absolute;
+  top: 100%;
+  left: 50%;
+  background: white;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  
+
+  }
+}
+@media (min-width: 705px) and (max-width: 992px) {
+  .logingoogle {
+    margin-right: -30px;
+  }
+  .optionscontainer {
+    position: absolute;
+  top: 100%;
+  left: 50%;
+  background: white;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  
+
+  }
+  
+}
+@media (min-width: 655px) and (max-width: 971px) {
+  .logingoogle {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 859px) {
+  .logingoogle {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 643px) {
+
+  .logingoogle {
+    margin-right: 30px;
+  }
+  
+  .hamburgericon {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 403px) {
+
+  .hamburgericon {
+    margin-left: 20px;
+  }
+
+  .logingoogle {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 376px) {
+  .hamburgericon {
+    margin-left: 30px;
+  }
+  .logingoogle {
+    margin-right: 1px;
+  }
+}

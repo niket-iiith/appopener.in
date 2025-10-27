@@ -5,13 +5,18 @@ import classes from "../components/Styles.module.css";
 import { Link } from "react-router-dom";
 import { Row, Col, Button, Container, Card } from "react-bootstrap";
 import { FaAmazonPay, FaDollarSign, FaWhatsapp } from "react-icons/fa";
-import HeroPrivacyPolicySection from "../components/HeroPrivacyPolicySection";
+import HeroPrivacyPolicySection from "../components/Policies/HeroPrivacyPolicySection";
 import PatternLogo from "../assets/pattern.avif";
-import Float from "../components/floatingButton";
+import Float from '../components/side_button';
+import Floattwo from '../components/side_button2';
+// import G13Ads from "../components/g13ads";
+import AdsterraAd from "../components/Adsterads";
 
-export default function PrivacyPolicy() {
+const PrivacyPolicy = () => {
   return (
     <div className={styles.mainContainer}>
+      {/* <G13Ads/> */}
+      <AdsterraAd/>
       <HeroPrivacyPolicySection />
       <div className={styles.container}>
         {/* <h1 id={styles.head}>Privacy Policy</h1> */}
@@ -345,7 +350,7 @@ export default function PrivacyPolicy() {
                     New Delhi, Delhi 110030
                   </li>
                   <li>
-                    <b>Email Id</b> : support@appopener.com
+                    <b>Email Id</b> : <a href="mailto:contactus@appopener.com">contactus@appopener.com</a>
                   </li>
                 </ul>
               </li>
@@ -357,8 +362,11 @@ export default function PrivacyPolicy() {
           <img src={PatternLogo} alt="pattern" />
         </div>
       </div>
-      <Float/>
       <Footer />
+      <Float/>
+      <Floattwo/>
     </div>
   );
-}
+};
+
+export default PrivacyPolicy;

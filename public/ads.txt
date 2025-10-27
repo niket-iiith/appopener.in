@@ -1,13 +1,1 @@
-#adster
-adster.tech, 12, DIRECT
-cereone.com, 12, DIRECT
-swiggy.com, 12, DIRECT
-google.com, pub-9989685810655749, RESELLER, f08c47fec0942fa0
-datawrkz.com,:mwpmcm505_ID, DIRECT
-google.com, pub-8856559311549217, RESELLER, f08c47fec0942fa0
-Media.net Media.net, 8CU8BGW55, DIRECT
-Onetag onetag.com, 7762f41ee0fb798-OB, DIRECT
-Magnite rubiconproject.com, 23834, DIRECT, 0bfd66d529a55807
-Pubmatic pubmatic.com, 162817, RESELLER, 5d62403b186f2ace
-Smart Adserver smartadserver.com, 4340-OB, RESELLER
-google.com, pub-2375501736049478, DIRECT, f08c47fec0942fa0
+  

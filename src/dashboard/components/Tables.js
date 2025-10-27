@@ -61,7 +61,7 @@ export const PageTrafficTable = (props) => {
      
   
     return (
-      <img class="yt_thumnbnail" src={thumbnail_url} width="50px"></img>
+      <img className="yt_thumnbnail" src={thumbnail_url} width="50px"></img>
     )
     
 
