@@ -37,7 +37,6 @@ class Login extends Component {
           onFailure={this.onFailure}
           cookiePolicy={"single_host_origin"}
           isSignedIn={true}
-          redirectUri="http://localhost:3000/user"
         />
       </div>
     );
