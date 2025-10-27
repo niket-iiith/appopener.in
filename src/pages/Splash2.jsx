@@ -75,7 +75,7 @@ const Splash = () => {
     intentvalue: "",
     original_url: "",
     linkMetadata: {},
-    seconds: 8,
+    seconds: 5,
     redirectText: "Redirecting in ",
     video_id: "",
     showImage: false,
