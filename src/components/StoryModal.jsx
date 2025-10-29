@@ -16,7 +16,7 @@ const StoryModal = ({ isOpen, onClose, title, thumbnail, shortId,link }) => {
             `${process.env.REACT_APP_API_URL}yt/preview/${shortId}`
           );
           const data = await response.json();
-          settitle(data.title || "🔥 AppOpener.com");
+          settitle(data.title || "🔥 AppOpener.in");
           setthumbnail(data.thumbnail);
         };
         fetchMetadata();

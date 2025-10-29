@@ -108,7 +108,7 @@ function Footer() {
                 Dm us on&nbsp;&nbsp;{" "}
                 <a
                   className=""
-                  href="https://appopener.com/ig/jqq8uy2ww"
+                  href="https://appopener.in/ig/jqq8uy2ww"
                   target="_blank"
                   title="instagram"
                 >

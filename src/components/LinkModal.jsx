@@ -395,7 +395,7 @@ const LinkModal = ({ isOpen, onClose, link, originalUrl, onClickAway }) => {
                   <FaLink />
                 </span> */}
                 <span className="bg-gray-200 py-2 text-gray-700 text-sm whitespace-nowrap text-left mr-1">
-                  https://appopener.com/yt/
+                  https://appopener.in/yt/
                 </span>
 
                 {/* Editable Part */}

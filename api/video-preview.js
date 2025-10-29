@@ -30,7 +30,7 @@ export default async function handler(req) {
     return new Response(null, { status: 404 });
   }
   let { title, description, thumbnail } = await data.json();
-  title = title || "🔥 AppOpener.com";
+  title = title || "🔥 AppOpener.in";
   description = description || "Watch it directly in Youtube App!";
 
   const html = `
