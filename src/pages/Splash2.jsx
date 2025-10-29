@@ -28,13 +28,13 @@ import AdsterraAd from "../components/Adsterads";
 import G13Ads from "../components/g13ads";
 import StoryCarousel from "../components/Corousel.jsx";
 import LoadingScreen from "../components/Loader.jsx";
-import logo from "../assets/AppOpener.png"
+import logo from "../assets/AppOpener.png";
 import FeaturedSection from "../components/FeaturedSection.jsx";
 import PagerElement from "../components/pager.jsx";
-import book1 from "../assets/affiliation/book1.webp"
-import book2 from "../assets/affiliation/book2.webp"
-import book3 from "../assets/affiliation/book3.webp"
-import book4 from "../assets/affiliation/book4.webp"
+import book1 from "../assets/affiliation/book1.webp";
+import book2 from "../assets/affiliation/book2.webp";
+import book3 from "../assets/affiliation/book3.webp";
+import book4 from "../assets/affiliation/book4.webp";
 /* import Snowfall from "react-snowfall"; */
 /* import tree from "../assets/tree.avif";
 import Snowman from "../assets/SnowMan.avif"; */
@@ -66,7 +66,7 @@ const Splash = () => {
   const [VideoId, setVideoId] = useState("");
   const [link, setLink] = useState("");
   const [isOn, setIsOn] = useState(false);
-  const [showCancelButton, setShowCancelButton] = useState(true); 
+  const [showCancelButton, setShowCancelButton] = useState(true);
   const [Profile, setProfile] = useState("");
   const [ytChannelDetails, setytChannelDetails] = useState({});
   const [pagermsg, setpagermsg] = useState([]);
@@ -97,29 +97,28 @@ const Splash = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const books = [
     {
-    title: "Benito’s Devil Whip (Katrina the Teen Vampire Series)",
-    url: "https://bookscape.com/product-details/benitos-devil-whip-katrina-the-teen-vampire-series-9780996463171?utm_source=appopener.com&utm_medium=affiliate&utm_campaign=campaign_4&utm_term=book&utm_content=book4",
-    image: book4
-  },
-  {
-    title: "Letters to Milena",
-    url: "https://bookscape.com/product-details/letters-to-milena-9781784874001?utm_source=appopener.com&utm_medium=affiliate&utm_campaign=campaign_3&utm_term=book&utm_content=book3",
-    image: book3
-  },
-  {
-    title: "Star Wars #1: Bounty Hunter",
-    url: "https://bookscape.com/product-details/star-wars-1-bounty-hunter-9781425797041?utm_source=appopener.com&utm_medium=affiliate&utm_campaign=campaign_2&utm_term=book&utm_content=book2",
-    image: book2
-  },
-  {
-    title: "Dynamite Thor Complete Hardcover",
-    url: "https://bookscape.com/product-details/dynamite-thor-complete-hardcover-9781951837174?utm_source=appopener.com&utm_medium=affiliate&utm_campaign=campaign_1&utm_term=book&utm_content=book1",
-    image: book1
-  }
-];
+      title: "Benito’s Devil Whip (Katrina the Teen Vampire Series)",
+      url: "https://bookscape.com/product-details/benitos-devil-whip-katrina-the-teen-vampire-series-9780996463171?utm_source=appopener.com&utm_medium=affiliate&utm_campaign=campaign_4&utm_term=book&utm_content=book4",
+      image: book4,
+    },
+    {
+      title: "Letters to Milena",
+      url: "https://bookscape.com/product-details/letters-to-milena-9781784874001?utm_source=appopener.com&utm_medium=affiliate&utm_campaign=campaign_3&utm_term=book&utm_content=book3",
+      image: book3,
+    },
+    {
+      title: "Star Wars #1: Bounty Hunter",
+      url: "https://bookscape.com/product-details/star-wars-1-bounty-hunter-9781425797041?utm_source=appopener.com&utm_medium=affiliate&utm_campaign=campaign_2&utm_term=book&utm_content=book2",
+      image: book2,
+    },
+    {
+      title: "Dynamite Thor Complete Hardcover",
+      url: "https://bookscape.com/product-details/dynamite-thor-complete-hardcover-9781951837174?utm_source=appopener.com&utm_medium=affiliate&utm_campaign=campaign_1&utm_term=book&utm_content=book1",
+      image: book1,
+    },
+  ];
 
-
-useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % books.length);
     }, 2000);
@@ -139,7 +138,7 @@ useEffect(() => {
           viewBox="0 0 24 24"
           className="w-6 h-6"
         >
-          <path d="M12 5c-7.633 0-12 7-12 7s4.367 7 12 7 12-7 12-7-4.367-7-12-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+          <path d="M12 5c-7.633 0-12 7-12 7s4.367 7 12 7 12-7 12-7-4.367-7-12-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
         </svg>
       ),
     },
@@ -166,7 +165,13 @@ useEffect(() => {
     {
       name: "Club",
       route: null, // No route since it triggers a component
-      icon: <img src={Profile} alt="Profile" className="w-10 h-10 border-2 border-[#9D4EDD] hover:border-[#FF00A0] rounded-full" />,
+      icon: (
+        <img
+          src={Profile}
+          alt="Profile"
+          className="w-10 h-10 border-2 border-[#9D4EDD] hover:border-[#FF00A0] rounded-full"
+        />
+      ),
     },
     {
       name: "FreeBee",
@@ -397,8 +402,7 @@ useEffect(() => {
       })
       .finally(() => {
         setLoading(false);
-        if (app_intend && 
-          click_link) {
+        if (app_intend && click_link) {
           startTimer(app_intend, click_link);
         }
       });
@@ -431,7 +435,7 @@ useEffect(() => {
     if (videos?.suggestions?.links?.length > 0) {
       const TopVideos = videos.suggestions.links.slice(0, 15);
       const top10 = videos.suggestions.links.slice(0, 10);
-      setFeatured(top10.slice(0,4));
+      setFeatured(top10.slice(0, 4));
       setTopVideo(TopVideos); // Start from the first video
       settop10(top10);
     }
@@ -443,8 +447,12 @@ useEffect(() => {
     if (buttonText === "Press to Continue") {
       return (
         <>
-          <img src={logo} alt="App Logo" className="w-10 h-10 rotate-90 drop-shadow-[0_0_10px_#3b82f6]"/>
-            Press to Continue
+          <img
+            src={logo}
+            alt="App Logo"
+            className="w-10 h-10 rotate-90 drop-shadow-[0_0_10px_#3b82f6]"
+          />
+          Press to Continue
         </>
       );
     }
@@ -472,270 +480,272 @@ useEffect(() => {
       {/* Navbar */}
       <nav className="backdrop-blur-xl bg-black/40 border-b border-[#9D4EDD] shadow-[0_0_15px_#9D4EDD]/50">
         {ytChannelDetails.data && (
-        <UserProfile
-          url={state.original_url}
-          video_id={state.video_id}
-          onApiDataLoaded={handleApiDataLoaded}
-          onSetShowGenerateLink={setShowGenerateLink}
-          onCancelRedirect={handleCancel}
-          ytChannelDetails={ytChannelDetails}
-        />)}
+          <UserProfile
+            url={state.original_url}
+            video_id={state.video_id}
+            onApiDataLoaded={handleApiDataLoaded}
+            onSetShowGenerateLink={setShowGenerateLink}
+            onCancelRedirect={handleCancel}
+            ytChannelDetails={ytChannelDetails}
+          />
+        )}
       </nav>
 
       {/* Stories Section */}
-    <div>
-      <div className="flex items-center justify-center space-x-4 overflow-x-auto px-2">
+      <div>
+        {/* <div className="flex items-center justify-center space-x-4 overflow-x-auto px-2">
         {pagermsg.data && <PagerElement pagermsg={pagermsg?.data?.data} />}
-      </div>
+      </div> */}
 
-      <div className="flex flex-col items-center px-2">
-        <div className="w-full max-w-4xl mx-auto mt-2 mb-2">
-          {state.video_id && (
-            <div className="relative group overflow-hidden rounded-xl shadow-[0_0_25px_#00F5FF]/60">
-             <div className="relative -z-1 aspect-video overflow-hidden bg-black rounded-xl border border-[#9D4EDD]">
-              {state.linkMetadata.image && (
-               <iframe
-                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                 src={`https://www.youtube.com/embed/${
-                 state.linkMetadata.videoId || state.video_id
-                 }?autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=${
-                 state.linkMetadata.videoId || state.video_id
-                 }&wmode=transparent`}
-                 frameBorder="0"
-                 allow="autoplay; encrypted-media; fullscreen"
-                 allowFullScreen
-              ></iframe>
-             )}
-            </div>
-           </div>
-          )}
+        <div className="flex flex-col items-center px-2">
+          <div className="w-full max-w-4xl mx-auto mt-2 mb-2">
+            {state.video_id && (
+              <div className="relative group overflow-hidden rounded-xl shadow-[0_0_25px_#00F5FF]/60">
+                <div className="relative -z-1 aspect-video overflow-hidden bg-black rounded-xl border border-[#9D4EDD]">
+                  {state.linkMetadata.image && (
+                    <iframe
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                      src={`https://www.youtube.com/embed/${
+                        state.linkMetadata.videoId || state.video_id
+                      }?autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=${
+                        state.linkMetadata.videoId || state.video_id
+                      }&wmode=transparent`}
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media; fullscreen"
+                      allowFullScreen
+                    ></iframe>
+                  )}
+                </div>
+              </div>
+            )}
 
-          {/* Continue Button */}
-          <div className="w-full flex flex-col items-center">
-            <a
-              className="w-full max-w-4xl no-underline"
-              id="abcd"
-              ref={continueButtonRef}
-            >
-              <button
-                onClick={handleButtonClick}
-                className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-lg font-bold h-10 px-4 py-2 mt-2 w-full
+            {/* Continue Button */}
+            <div className="w-full flex flex-col items-center">
+              <a
+                className="w-full max-w-4xl no-underline"
+                id="abcd"
+                ref={continueButtonRef}
+              >
+                <button
+                  onClick={handleButtonClick}
+                  className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-lg font-bold h-10 px-4 py-2 mt-2 w-full
                        bg-[#9D4EDD] hover:bg-[#FF00A0] text-white 
                        shadow-[0_0_15px_#9D4EDD] hover:shadow-[0_0_20px_#FF00A0]
                        transition"
-              >
-                {redirectContent}
-              </button>
-            </a>
-
-            {buttonVisible && showCancelButton && (
-              <button
-                onClick={handleCancel}
-                className="mt-2 border-2 border-[#00F5FF] px-3 rounded-lg text-[#00F5FF] font-semibold shadow-[0_0_10px_#00F5FF] hover:bg-[#00F5FF]/10 transition"
-                id="cancel"
-              >
-                Cancel
-              </button>
-            )}
-          </div>
-
-          {/* Bottom Nav */}
-          <nav className="bg-black/40 text-white w-full mb-2 mt-2 rounded-lg shadow-[0_0_20px_#00F5FF]/50">
-            <div className="flex justify-around items-center h-16 px-2">
-              {navItems.map((item) => {
-                const isActive = activeItem === item.name;
-                return (
-                  <div
-                    key={item.name}
-                    className={`flex flex-col justify-center items-center px-2 ${
-                      isActive
-                        ? "text-[#00F5FF] font-semibold drop-shadow-[0_0_10px_#00F5FF]"
-                        : "text-[#9D4EDD] hover:text-[#FF00A0] cursor-pointer"
-                    }`}
-                    onClick={() => handleNavigation(item.route, item.name)}
-                  >
-                    <button className="flex items-center justify-center p-1 rounded-full">
-                      {item.icon}
-                    </button>
-                    <span className="text-xs font-bold sm:text-sm">{item.name}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </nav>
-          {showGenerateLink && (
-            <div className="bg-white p-4 md:p-6">
-              <GenerateLinkButton />
-            </div>
-          )}
-        </div>
-        {/* Leaderboard */}
-        <div className="w-full max-w-4xl flex flex-col items-center mb-4">
-          <div className="flex w-full items-center justify-between mb-2">
-            {isOn ? (
-              <div className="flex flex-row font-extrabold text-xl sm:text-2xl items-center">
-                <Trophy size={28} className="text-[#FF00A0]" />
-                  <p className="ml-2 text-[#00F5FF]">Leaderboard</p>
-              </div>
-            ) : (
-              <>
-              <h2 className="text-xl sm:text-3xl font-bold text-[#FFFF33]">
-                ⭐️ Featured
-              </h2>
-              </>
-            )}
-            <div className="flex flex-col items-center justify-center text-md font-bold">
-              Show
-            <button
-              onClick={() => setIsOn(!isOn)}
-              className={`relative w-16 h-6 rounded-full flex items-center px-2 transition-colors duration-300 ${
-              isOn ? "bg-[#00F5FF]" : "bg-[#FFFF33]"
-              }`}
-            >
-              <div
-                className={`absolute left-1 w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
-                isOn ? "translate-x-9" : "translate-x-0"
-                }`}
-              />
-              <span
-                className={`w-full text-center text-xs font-semibold transition-colors duration-300 text-black`}
-              >
-                {isOn ? "On" : "Off"}
-              </span>
-            </button>
-            </div>
-          </div>
-          {isOn ? (
-
-            <div className="w-full bg-[#0A0A0A] text-white rounded-xl shadow-[0_0_25px_#9D4EDD]/70 overflow-hidden">
-              <div className="grid grid-cols-12 items-center px-4 py-3 bg-[#1A1A1A] border-b border-[#9D4EDD]">
-                <div className="col-span-2 font-semibold">Rank</div>
-                <div className="col-span-7 font-semibold">Video</div>
-                <div className="col-span-3 font-semibold text-right">
-                  Points
-                </div>
-              </div>
-              {/* Table Rows */}
-              {TopVideo.map((item, index) => (
-                <a
-                  key={index}
-                  href={item["smart_link"]}
-                  className="no-underline block transition hover:bg-[#9D4EDD]/20"
                 >
-                  <div className="grid grid-cols-12 items-center px-4 py-3 border-b border-gray-800">
-                    <div className="col-span-2 flex items-center justify-start">
-                      <div
-                        className={`w-8 h-8 flex items-center justify-center text-sm font-bold rounded-full shadow-lg ${
-                          index === 0
-                            ? "bg-[#FFD700] text-black"
-                            : index === 1
-                            ? "bg-gray-400 text-white"
-                            : index === 2
-                            ? "bg-[#9D4EDD] text-white"
-                            : "bg-[#FF00A0] text-white"
-                        }`}
-                      >
-                        {index + 1}
+                  {redirectContent}
+                </button>
+              </a>
+
+              {buttonVisible && showCancelButton && (
+                <button
+                  onClick={handleCancel}
+                  className="mt-2 border-2 border-[#00F5FF] px-3 rounded-lg text-[#00F5FF] font-semibold shadow-[0_0_10px_#00F5FF] hover:bg-[#00F5FF]/10 transition"
+                  id="cancel"
+                >
+                  Cancel
+                </button>
+              )}
+            </div>
+
+            {/* Bottom Nav */}
+            <nav className="bg-black/40 text-white w-full mb-2 mt-2 rounded-lg shadow-[0_0_20px_#00F5FF]/50">
+              <div className="flex justify-around items-center h-16 px-2">
+                {navItems.map((item) => {
+                  const isActive = activeItem === item.name;
+                  return (
+                    <div
+                      key={item.name}
+                      className={`flex flex-col justify-center items-center px-2 ${
+                        isActive
+                          ? "text-[#00F5FF] font-semibold drop-shadow-[0_0_10px_#00F5FF]"
+                          : "text-[#9D4EDD] hover:text-[#FF00A0] cursor-pointer"
+                      }`}
+                      onClick={() => handleNavigation(item.route, item.name)}
+                    >
+                      <button className="flex items-center justify-center p-1 rounded-full">
+                        {item.icon}
+                      </button>
+                      <span className="text-xs font-bold sm:text-sm">
+                        {item.name}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </nav>
+            {showGenerateLink && (
+              <div className="bg-white p-4 md:p-6">
+                <GenerateLinkButton />
+              </div>
+            )}
+          </div>
+
+          {/* Leaderboard */}
+          <div className="w-full max-w-4xl flex flex-col items-center mb-4">
+            <div className="flex w-full items-center justify-between mb-2">
+              {isOn ? (
+                <div className="flex flex-row font-extrabold text-xl sm:text-2xl items-center">
+                  <Trophy size={28} className="text-[#FF00A0]" />
+                  <p className="ml-2 text-[#00F5FF]">Leaderboard</p>
+                </div>
+              ) : (
+                <>
+                  <h2 className="text-xl sm:text-3xl font-bold text-[#FFFF33]">
+                    ⭐️ Featured
+                  </h2>
+                </>
+              )}
+              <div className="flex flex-col items-center justify-center text-md font-bold">
+                Show
+                <button
+                  onClick={() => setIsOn(!isOn)}
+                  className={`relative w-16 h-6 rounded-full flex items-center px-2 transition-colors duration-300 ${
+                    isOn ? "bg-[#00F5FF]" : "bg-[#FFFF33]"
+                  }`}
+                >
+                  <div
+                    className={`absolute left-1 w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+                      isOn ? "translate-x-9" : "translate-x-0"
+                    }`}
+                  />
+                  <span
+                    className={`w-full text-center text-xs font-semibold transition-colors duration-300 text-black`}
+                  >
+                    {isOn ? "On" : "Off"}
+                  </span>
+                </button>
+              </div>
+            </div>
+            {isOn ? (
+              <div className="w-full bg-[#0A0A0A] text-white rounded-xl shadow-[0_0_25px_#9D4EDD]/70 overflow-hidden">
+                <div className="grid grid-cols-12 items-center px-4 py-3 bg-[#1A1A1A] border-b border-[#9D4EDD]">
+                  <div className="col-span-2 font-semibold">Rank</div>
+                  <div className="col-span-7 font-semibold">Video</div>
+                  <div className="col-span-3 font-semibold text-right">
+                    Points
+                  </div>
+                </div>
+                {/* Table Rows */}
+                {TopVideo.map((item, index) => (
+                  <a
+                    key={index}
+                    href={item["smart_link"]}
+                    className="no-underline block transition hover:bg-[#9D4EDD]/20"
+                  >
+                    <div className="grid grid-cols-12 items-center px-4 py-3 border-b border-gray-800">
+                      <div className="col-span-2 flex items-center justify-start">
+                        <div
+                          className={`w-8 h-8 flex items-center justify-center text-sm font-bold rounded-full shadow-lg ${
+                            index === 0
+                              ? "bg-[#FFD700] text-black"
+                              : index === 1
+                              ? "bg-gray-400 text-white"
+                              : index === 2
+                              ? "bg-[#9D4EDD] text-white"
+                              : "bg-[#FF00A0] text-white"
+                          }`}
+                        >
+                          {index + 1}
+                        </div>
+                      </div>
+
+                      <div className="col-span-7 truncate text-sm sm:text-base font-bold">
+                        {item.metadata.title}
+                      </div>
+
+                      {/* Points */}
+                      <div className="col-span-3 text-right font-semibold text-[#00F5FF] font-mono">
+                        {item.clicks * 3}
                       </div>
                     </div>
-
-                    <div className="col-span-7 truncate text-sm sm:text-base font-bold">
-                      {item.metadata.title}
-                    </div>
-
-                    {/* Points */}
-                    <div className="col-span-3 text-right font-semibold text-[#00F5FF] font-mono">
-                      {item.clicks * 3}
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-3 gap-4 w-full border-2 border-[#FFFF33] rounded-md p-3">
+                {/* Main Book */}
+                <a
+                  href={books[currentIndex]?.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative group col-span-2 rounded-2xl overflow-hidden shadow-lg no-underline"
+                >
+                  <img
+                    src={books[currentIndex]?.image}
+                    alt={books[currentIndex]?.title}
+                    className="w-full aspect-[2/3] object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <div className="bg-red-600 p-3 sm:p-4 rounded-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-6 h-6 sm:w-8 sm:h-8 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
                     </div>
                   </div>
+                  <h3 className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 text-sm sm:text-xl font-semibold text-yellow-300">
+                    {books[currentIndex]?.title}
+                  </h3>
+                </a>
+
+                {/* Sidebar list of all books */}
+                <div className="flex flex-col gap-2 sm:gap-4 max-h-[72] overflow-y-auto">
+                  {books.map((book, idx) => (
+                    <a
+                      key={idx}
+                      href={book.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setCurrentIndex(idx)}
+                      className={`flex items-center gap-2 sm:gap-4 p-1 sm:p-3 rounded-xl transition no-underline ${
+                        idx === currentIndex
+                          ? "bg-gray-800 border border-yellow-400"
+                          : "bg-gray-900 hover:bg-gray-800"
+                      }`}
+                    >
+                      <img
+                        src={book.image}
+                        alt={book.title}
+                        className="w-12 h-18 sm:w-20 sm:h-28 rounded-lg object-cover flex-shrink-0"
+                      />
+                      <p className="font-medium text-white text-xs sm:text-base truncate">
+                        {book.title}
+                      </p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          <div ref={showTopref} className="w-full px-2" tabIndex={0}>
+            {showTop &&
+              top10.map((item, index) => (
+                <a href={item.smart_link} key={index} className="no-underline">
+                  <VideoCard
+                    rank={index + 1}
+                    title={item.metadata.title}
+                    thumbnail={item.metadata.image}
+                    description={item.metadata.description}
+                  />
                 </a>
               ))}
-            </div>
-      ) : (
-<div className="grid grid-cols-3 gap-4 w-full border-2 border-[#FFFF33] rounded-md p-3">
-  {/* Main Book */}
-  <a
-    href={books[currentIndex]?.url}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="relative group col-span-2 rounded-2xl overflow-hidden shadow-lg no-underline"
-  >
-    <img
-      src={books[currentIndex]?.image}
-      alt={books[currentIndex]?.title}
-      className="w-full aspect-[2/3] object-cover group-hover:scale-105 transition-transform duration-500"
-    />
-    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-      <div className="bg-red-600 p-3 sm:p-4 rounded-full">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6 sm:w-8 sm:h-8 text-white"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </div>
-    </div>
-    <h3 className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 text-sm sm:text-xl font-semibold text-yellow-300">
-      {books[currentIndex]?.title}
-    </h3>
-  </a>
-
-  {/* Sidebar list of all books */}
-  <div className="flex flex-col gap-2 sm:gap-4 max-h-[72] overflow-y-auto">
-    {books.map((book, idx) => (
-      <a
-        key={idx}
-        href={book.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => setCurrentIndex(idx)}
-        className={`flex items-center gap-2 sm:gap-4 p-1 sm:p-3 rounded-xl transition no-underline ${
-          idx === currentIndex
-            ? "bg-gray-800 border border-yellow-400"
-            : "bg-gray-900 hover:bg-gray-800"
-        }`}
-      >
-        <img
-          src={book.image}
-          alt={book.title}
-          className="w-12 h-18 sm:w-20 sm:h-28 rounded-lg object-cover flex-shrink-0"
-        />
-        <p className="font-medium text-white text-xs sm:text-base truncate">
-          {book.title}
-        </p>
-      </a>
-    ))}
-  </div>
-</div>
-
-      )}
-    </div>
-                <div ref={showTopref} className="w-full px-2" tabIndex={0}>
-          {showTop &&
-            top10.map((item, index) => (
-              <a href={item.smart_link} key={index} className="no-underline">
-                <VideoCard
-                  rank={index + 1}
-                  title={item.metadata.title}
-                  thumbnail={item.metadata.image}
-                  description={item.metadata.description}
-                />
-              </a>
-            ))}
+          </div>
+          <ContactDialog
+            open={dialogOpen}
+            onOpenChange={setDialogOpen}
+            Creator1={ChannelName}
+            Video={state.video_id}
+            LInk={state.original_url}
+          />
         </div>
-        <ContactDialog
-          open={dialogOpen}
-          onOpenChange={setDialogOpen}
-          Creator1={ChannelName}
-          Video={state.video_id}
-          LInk={state.original_url}
-        />
+        <Float />
+        <Floattwo />
       </div>
-      <Float />
-      <Floattwo />
-    </div>
     </div>
   );
 };
