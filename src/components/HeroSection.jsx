@@ -46,7 +46,7 @@ class HeroSection extends Component {
       displayImage: "",
       displayname: "",
       screenWidth: window.innerWidth,
-      selectedDomain: ".com",
+      selectedDomain: ".in",
       editWindow: false,
     };
 
